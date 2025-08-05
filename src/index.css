@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+font-family: "Inter", sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+
+}
+.padding{
+    padding: 10px 4%;
+}
+.just{
+    justify-content: end;
+    opacity: 0.7;
+    font-weight: 300;
+    font-size: 15px;
+}
+.text_color{
+    color: #FAC817;
+}
+.text_color2{
+    color: #FFFFFFFF;
+}
+.icone{
+    height: 40px;
+    width: 40px;
+}
+.borderss{
+    border: 0.5px solid #444343;
+}
+.shadow{
+    box-shadow: 2px 3px 20px -8px #FAC817;
+}
+.Navshadow{
+    box-shadow: 11px 20px 289px -1px #FAC817;
+}
+.linear_gradient {
+  background:linear-gradient(to top, #FAC817 , #FAC817 ,#FFFFFFFF );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.drop_shadow{
+filter: drop-shadow(6px 3px 30px #FAC817);
+}
+.drop_shadow2{
+filter: drop-shadow(2px 10px 48px black);
+
+}
+.drop_shadow3{
+filter: drop-shadow(2px 10px 48px black);
+  box-shadow:1px 47px 218px 60px black
+}
+.drop_shadow4{
+filter: drop-shadow(2px 7px 17px #FAC817 );
+}
+.boxsedo{
+    box-shadow: -2px 20px 16px 87px #FAC817;
+}
+.boxswdobox_shadow4{
+    box-shadow: -1px -1px 15px -5px #FAC817;
+}
+.shadow6{
+    box-shadow: 1px 2px 148px -18px #FAC817;
+}
+.bookdemo{
+    width: 1200px;
+    height: 663px;
+    box-shadow: 5px 20px 186px 37px #FAC817;
+    top: 0px;
+    background-color: #FAC817;
+    opacity: 0.3;
+    top: -68%;
+    z-index: -1;
+    filter: drop-shadow(2px 7px 17px #FAC817 );
+
+}
+
+.boxswdobox_shadow5{
+    box-shadow: -1px -1px 47px -15px #FAC817;
+}
+.boxsedobox{
+    box-shadow: 6px 20px 73px 17px #FAC817;
+}
+.borders{
+    border: 1px solid #474444;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.grids{
+    display: grid;
+    grid-template-columns: 215px 315px 315px 215px;
+}
+.linear_gradient2 {
+  @apply bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent;
+}
+.boxbottom{
+    box-shadow: -6px -20px 72px 48px #050208;
+}
