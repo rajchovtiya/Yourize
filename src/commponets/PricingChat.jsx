@@ -75,7 +75,7 @@ const PricingChat = () => {
                                             <button
                                                 className={`text-xs px-12 py-3 rounded-xl border font-medium
                                                 ${plan.name === 'Growth'
-                                                        ? 'border-[#c7ad4d] bg-[#FAC817] text-white'
+                                                        ? 'border-[#c7ad4d] bg-[#FAC817] text-white chatbox'
                                                         : 'border-gray-300 bg-white/10 text-white hover:bg-white/20'}`}
                                             >
                                                 Get Started

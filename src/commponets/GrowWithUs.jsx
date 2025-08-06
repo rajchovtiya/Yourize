@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const GrowWithUsData = [
     {
@@ -43,27 +47,67 @@ const GrowWithUsData = [
 ];
 
 function GrowWithUs() {
+    const sectionRef = useRef(null);
+    const cardsRef = useRef([]);
+
+    useEffect(() => {
+        // Heading animation
+        gsap.fromTo(
+            sectionRef.current.querySelectorAll(".section-heading"),
+            { opacity: 0, y: 30 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: "power3.out",
+            }
+        );
+
+        // Card animation
+        cardsRef.current.forEach((card, index) => {
+            gsap.fromTo(
+                card,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    delay: index * 0.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 30%",
+                        toggleActions: "play none none none",
+                        // markers:true
+                    },
+                }
+            );
+        });
+    }, []);
+
     return (
-        <div className='padding mt-11'>
+        <div className='padding mt-11' ref={sectionRef}>
             <div className='flex items-center justify-center flex-col'>
-                <h1 className='text-7xl text_color2 text-center'>Everything you need to Grow</h1>
-                <h1 className='linear_gradient text-7xl mt-[20px] text-center'>All in One Platform</h1>
-                <p className='text_color mt-8 font-light text-[20px] text-center'>
+                <h1 className='text-5xl text_color2 text-center section-heading'>Everything you need to Grow</h1>
+                <h1 className='linear_gradient text-5xl mt-[20px] text-center section-heading'>All in One Platform</h1>
+                <p className='text_color mt-8 font-light text-[20px] text-center section-heading'>
                     From branding to lead generation, automation to learning we have built Yourize to
                 </p>
-                <p className='text-center text_color font-light text-[20px]'>
+                <p className='text-center text_color font-light text-[20px] section-heading'>
                     support every part of your journey as a financial professional
                 </p>
             </div>
 
             <div className='flex items-center md:items-center justify-center md:justify-between mt-10 flex-wrap gap-6'>
-                {GrowWithUsData.map((item) => (
+                {GrowWithUsData.map((item, index) => (
                     <div
                         key={item.id}
+                        ref={(el) => (cardsRef.current[index] = el)}
                         className="w-full md:w-[360px] h-[530px] pb-4 rounded-[20px] bg-[#000000] relative p-6 px-8 text-white 
                         shadow-lg overflow-hidden border border-[#FAC817] boxswdobox_shadow4"
                     >
-                        {/* Large soft glow background */}
+                        {/* Glow background */}
                         <div className="absolute top-[-50px] left-[-50px] w-[400px] h-[400px] bg-[#FAC817] 
                             opacity-[0.2] rounded-full blur-[100px] pointer-events-none z-0"></div>
 
@@ -76,9 +120,9 @@ function GrowWithUs() {
                             { bottom: '20%', left: '15%' },
                             { bottom: '10%', right: '20%' },
                             { top: '35%', left: '25%' }
-                        ].map((pos, index) => (
+                        ].map((pos, i) => (
                             <div
-                                key={index}
+                                key={i}
                                 className="absolute w-[8px] h-[8px] bg-[#FAC817] blur-sm rounded-full opacity-80 z-10"
                                 style={pos}
                             ></div>
@@ -89,14 +133,15 @@ function GrowWithUs() {
                             <img src={item.icon} alt="" className='max-w-[70px]' />
                         </div>
 
+                        {/* Title */}
                         <h2 className="text-center text-[25px] font-medium">{item.title}</h2>
                         <h2 className="text-center text-[22px] font-medium text-[#817D6E]">{item.title2}</h2>
 
+                        {/* Description */}
                         <p className="text-center text-sm text-gray-400 mb-5 mt-5">{item.description[0]}</p>
-
                         <div className="space-y-4 text-sm text-white leading-relaxed text-center">
-                            {item.description.slice(1).map((desc, index) => (
-                                <p key={index}>{desc}</p>
+                            {item.description.slice(1).map((desc, i) => (
+                                <p key={i}>{desc}</p>
                             ))}
                         </div>
 
@@ -104,7 +149,7 @@ function GrowWithUs() {
                             {item.note}
                         </p>
 
-                        {/* Decorative corner lines */}
+                        {/* Corners */}
                         <div className='absolute top-0 left-0'>
                             <img src="./img/Line 1.png" alt="" />
                         </div>

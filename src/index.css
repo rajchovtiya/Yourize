@@ -34,6 +34,9 @@ body{
 .borderss{
     border: 0.5px solid #444343;
 }
+.chatbox{
+    box-shadow: 0px -1px 27px -6px #FAC817;
+}
 .shadow{
     box-shadow: 2px 3px 20px -8px #FAC817;
 }

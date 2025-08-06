@@ -1,8 +1,43 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react';
 import { FaStar } from "react-icons/fa";
 import { FaStarHalf } from "react-icons/fa";
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Financial() {
+    const ratingBoxRef = useRef(null);
+    const textSectionRef = useRef(null);
+
+    useEffect(() => {
+        gsap.fromTo(ratingBoxRef.current,
+            { opacity: 0, x: -100 },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 1.2,
+                scrollTrigger: {
+                    trigger: ratingBoxRef.current,
+                    start: "top 7%",
+                }
+            }
+        );
+
+        gsap.fromTo(textSectionRef.current,
+            { opacity: 0, x: 100 },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 1.2,
+                scrollTrigger: {
+                    trigger: textSectionRef.current,
+                    start: "top 7%",
+                }
+            }
+        );
+    }, []);
+
     return (
         <div className="relative min-h-screen flex items-center justify-center bg-black flex-col py-10 px-4 mt-16 overflow-hidden">
             {/* Background image */}
@@ -10,18 +45,15 @@ function Financial() {
                 className="absolute inset-0 bg-cover bg-center opacity-30"
                 style={{ backgroundImage: `url('./img/linebox.png')` }}
             ></div>
-            {/* Background image */}
-            {/* <img
-                src="./img/linebox.png"
-                alt=""
-                className='z-10 max-h- object-cover w-full absolute top-[-2%] opacity-30'
-            /> */}
 
             {/* Main content */}
             <div className='flex flex-col lg:flex-row gap-10 lg:gap-24 items-center justify-around px-4 md:px-12 z-50 relative'>
 
                 {/* Rating Box */}
-                <div className='bg-black p-6 md:p-9 border mt-10 border-[#FAC817] rounded-lg w-full md:w-[450px] h-[270px] shadow6'>
+                <div
+                    ref={ratingBoxRef}
+                    className='bg-black p-6 md:p-9 border mt-10 border-[#FAC817] rounded-lg w-full md:w-[450px] h-[270px] shadow6'
+                >
                     <h1 className='text_color2 text-xl font-semibold'>Product</h1>
                     <h1 className='text-[#FAC817] text-xl font-semibold'>Rating</h1>
                     <h1 className='text-5xl md:text-6xl font-extrabold linear_gradient mt-4'>4.5</h1>
@@ -42,7 +74,10 @@ function Financial() {
                 </div>
 
                 {/* Text + List Section */}
-                <div className='mt-10 lg:mt-16 w-full max-w-3xl'>
+                <div
+                    ref={textSectionRef}
+                    className='mt-10 lg:mt-16 w-full max-w-3xl'
+                >
                     <h1 className='text-4xl md:text-5xl lg:text-6xl text_color2 font-bold text-center md:text-start'>
                         Why Financial
                     </h1>
@@ -74,7 +109,7 @@ function Financial() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Financial;

@@ -47,12 +47,12 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
                         {/* Header */}
                         <div className="flex items-center justify-center">
                             <h2 className="text-center text-white text-xl sm:text-2xl font-bold mb-6 bg-black border border-[#FAC817] rounded-full px-6 sm:px-10 py-2 shadow-yellow-500 shadow-md w-[400px] h-[53px]">
-                                Client Onboarding Form
+                                Book Demo For Free
                             </h2>
                         </div>
 
                         {/* Form Box */}
-                        <div className="bg-[#DCDCDC] rounded-[30px] px-6 sm:px-8 py-6 sm:py-8 border border-white/20 backdrop-blur-md shadow-yellow-400 shadow-md">
+                        <div className="bg-white rounded-[30px] px-6 sm:px-8 py-6 sm:py-8 border border-white/20 backdrop-blur-md shadow-yellow-400 shadow-md">
                             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-6">
                                 {[
                                     { label: "Name", name: "name", placeholder: "Your Name Here", rules: { required: "Name is required" } },
@@ -89,19 +89,34 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
 
                                 {/* Dropdown */}
                                 <div className="relative">
-                                    <div className="absolute left-4 top-3 bg-black rounded h-[33px] w-[96px] flex items-center justify-center">
+                                    <div className="absolute left-4 top-3 bg-black rounded h-[33px] w-[120px] flex items-center justify-center">
                                         <label className="text-yellow-400 text-sm font-bold">I am</label>
                                     </div>
+
                                     <select
                                         {...register("role", { required: "Please select an option" })}
-                                        className="w-full pl-36 py-4 rounded bg-transparent border border-[#554A26] text-black outline-none appearance-none"
+                                        className="w-full pl-36 py-4 rounded bg-white border border-black text-black outline-none appearance-none transition duration-300 ease-in-out focus:ring-2  focus:border-black"
                                         defaultValue=""
                                     >
-                                        <option value="" disabled hidden>Select Here</option>
-                                        <option value="client" className="bg-black text-yellow-600">Client</option>
-                                        <option value="partner" className="bg-black text-yellow-600">Partner</option>
-                                        <option value="other" className="bg-black text-yellow-600">Other</option>
+                                        <option value="" disabled hidden>Select Your Role</option>
+
+                                        <optgroup label="Professionals">
+                                            <option value="mutual_fund_distributor" className="bg-white text-black">Mutual Fund Distributor</option>
+                                            <option value="investment_advisor" className="bg-white text-black">Registered Investment Advisor</option>
+                                            <option value="insurance_agent" className="bg-white text-black">Insurance Agent</option>
+                                            <option value="financial_planner" className="bg-white text-black">Certified Financial Planner</option>
+                                        </optgroup>
+
+                                        <optgroup label="Organizations">
+                                            <option value="family_office" className="bg-white text-black">Family Office</option>
+                                            <option value="fintech_startup" className="bg-white text-black">Fintech Startup</option>
+                                        </optgroup>
+
+                                        <optgroup label="Other">
+                                            <option value="other" className="bg-white text-black">Other (Please specify in the message)</option>
+                                        </optgroup>
                                     </select>
+
                                     {errors.role && (
                                         <p className="text-red-500 text-xs mt-1 absolute -bottom-5 left-0">
                                             {errors.role.message}
