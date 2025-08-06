@@ -47,11 +47,11 @@ function Growth() {
                 <h1 className=' text-6xl font-normal text-white text-center'>What’s Holding You Back from</h1>
                 <h1 className=' text-[3.75rem] font-normal linear_gradient text-center'>Growing?</h1>
             </div>
-            <div className="flex flex-wrap justify-center xl:justify-center gap-20 xl:gap-5 mt-16">
+            <div className="flex flex-wrap justify-center xl:justify-center gap-36 xl:gap-5 mt-16">
                 {GrowtHData.map((item) => (
                     <div
                         key={item.id}
-                        className="flex flex-col justify-center items-center md:justify-start md:items-start w-[100%] md:max-w-[370px] p-4"
+                        className="flex flex-col justify-center items-center md:justify-center md:items-center w-[100%] md:max-w-[360px] p-4"
                     >
                         <img src={item.image} alt="" className="max-w-[140px] drop_shadow4" />
                         <p className="text_color2 text-[35px] font-light mt-4 left-8">{item.text1}</p>

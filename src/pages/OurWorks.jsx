@@ -5,7 +5,7 @@ import Gallery from '../commponets/Gallery'
 import ReachandImpact from '../commponets/ReachandImpact'
 import BookDemo from '../commponets/BookDemo'
 
-function OurWorks({ props, setNavabr }) {
+function OurWorks({ props, setNavabr ,setFromslow }) {
     useEffect(() => {
         setNavabr('gdf')
     }, )
@@ -17,7 +17,7 @@ function OurWorks({ props, setNavabr }) {
             <ReachandImpact />
             <div className='padding mt-20'>
                 <div className='border border-[#FAC817] rounded-[20px] overflow-hidden'>
-                    <BookDemo props={props} />
+                    <BookDemo props={props} setFromslow={setFromslow} />
                 </div>
             </div>        </div>
     )

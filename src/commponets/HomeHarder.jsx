@@ -2,18 +2,18 @@ import React from 'react';
 import { CgArrowTopRight } from 'react-icons/cg';
 import { NavLink } from 'react-router-dom';
 
-function HomeHarder() {
+function HomeHarder({ setFromslow }) {
     return (
         <div className="flex flex-col items-center justify-center mt-6 px-4 sm:px-6 md:px-10 z-50">
             {/* Banner */}
-            <NavLink to={'./ClientOnboardingForm'} className="flex items-center justify-between gap-3 bg-black rounded-3xl py-2 px-5 sm:px-7 border border-[#FAC817] z-40">
+            <div to={'./ClientOnboardingForm'} className="flex items-center justify-between gap-3 bg-black cursor-pointer rounded-3xl py-2 px-5 sm:px-7 border border-[#FAC817] z-40" onClick={() => { setFromslow(true) }}>
                 <div className="bg-[#FAC817] text-[10px] font-semibold rounded-2xl py-1 px-2 flex items-center justify-center">
                     NEW
                 </div>
                 <p className="text_color text-sm sm:text-base font-medium">
                     Start your journey to higher AUM only at ₹18/day
                 </p>
-            </NavLink>
+            </div>
 
             {/* Main Heading */}
             <div className="mt-6 flex flex-col items-center text-center w-full z-50 ">
@@ -42,16 +42,16 @@ function HomeHarder() {
                 </div>
 
                 {/* Call to Action */}
-                <NavLink to={'/ClientOnboardingForm'}
-                    className="border border-[#FAC817] text-[#FAC817] bg-black font-semibold rounded-2xl py-2.5 px-6 mt-7
+                <div
+                    className="border border-[#FAC817] text-[#FAC817] bg-black font-semibold rounded-2xl py-2.5 px-6 mt-7 
           flex items-center gap-2 cursor-pointer drop_shadow2 drop_shadow3 transition-all duration-300
-          hover:bg-[#FAC817] hover:text-black"
+          hover:bg-[#FAC817] hover:text-black" onClick={() => { setFromslow(true) }}
                 >
                     Let’s Talk
                     <div className="h-5 w-5 rounded-full bg-[#FAC817] text-black flex items-center justify-center">
                         <CgArrowTopRight />
                     </div>
-                </NavLink>
+                </div>
             </div>
         </div>
     );

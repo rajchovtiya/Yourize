@@ -1,8 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
-function BookDemo({ props }) {
-    console.log(props);
+function BookDemo({ props, setFromslow }) {
     return (
         <div className="px-4 sm:px-6 lg:px-8 py-20 relative overflow-hidden">
             {/* Background line image */}
@@ -23,9 +21,12 @@ function BookDemo({ props }) {
                 <div className="absolute rounded-full bookdemo w-[200px] h-[200px] z-[-1] opacity-10"></div>
 
                 {/* Button */}
-                <NavLink to={'/ClientOnboardingForm'} className="bg-white text-black py-2 px-7 rounded-xl text-sm sm:text-base mt-8 shadow-md hover:shadow-lg transition">
+                <div
+                    onClick={() => setFromslow(true)}
+                    className="bg-white text-black py-2 px-7 rounded-xl text-sm sm:text-base mt-8 shadow-md hover:shadow-lg transition cursor-pointer"
+                >
                     Book Demo
-                </NavLink>
+                </div>
             </div>
         </div>
     );

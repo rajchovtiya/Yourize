@@ -4,7 +4,7 @@ function Pricinggrow() {
     return (
         <div className='relative mt-2'>
             <div
-                className="absolute inset-0 bg-cover bg-center opacity-30"
+                className="absolute inset-0 bg-cover bg-center opacity-15"
                 style={{ backgroundImage: `url('./img/linebox.png')` }}
             ></div>
 

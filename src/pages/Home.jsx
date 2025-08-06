@@ -9,20 +9,20 @@ import FAQ from '../commponets/FAQ'
 import BookDemo from '../commponets/BookDemo'
 import ClientOnboardingForm from '../commponets/ClientOnboardingForm'
 
-function Home({ props, setNavabr }) {
+function Home({ props, setNavabr,setFromslow }) {
   useEffect(() => {
     setNavabr('Navshadow')
   },)
   return (
     <div>
-      <HomeHarder />
+      <HomeHarder setFromslow={setFromslow} />
       <Graph />
       <Growth />
       <GrowWithUs />
       <Financial />
       <Clients />
       <FAQ />
-      <BookDemo props={props} />
+      <BookDemo props={props} setFromslow={setFromslow} />
     </div>
   )
 }

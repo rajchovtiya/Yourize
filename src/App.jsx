@@ -10,16 +10,17 @@ import { useState } from "react"
 
 function App() {
   const [navabr, setNavabr] = useState('Navshadow')
-
+  const [fromslow, setFromslow] = useState(false)
+  console.log(fromslow)
   return (
     <>
-      <Navbar navabr={navabr} />
+      <Navbar navabr={navabr} setFromslow={setFromslow} />
+      <ClientOnboardingForm fromslow={fromslow} setFromslow={setFromslow} />
       <Routes>
-        <Route path="/" element={<Home props={"Let’s grow your business together — book a call now."} setNavabr={setNavabr} />} />
-        <Route path="/offering" element={<Offering props={"Join hundreds of advisors growing with Yourize. Schedule your demo today."} setNavabr={setNavabr}/>} />
+        <Route path="/" element={<Home props={"Let’s grow your business together — book a call now."} setNavabr={setNavabr} setFromslow={setFromslow}  />} />
+        <Route path="/offering" element={<Offering props={"Join hundreds of advisors growing with Yourize. Schedule your demo today."} setNavabr={setNavabr} setFromslow={setFromslow} />} />
         <Route path="/Pricing" element={<Pricing setNavabr={setNavabr} />} />
-        <Route path="/OurWorks" element={<OurWorks props={'We’d love to work with you – no matter where you’re starting from.'} setNavabr={setNavabr} />} />
-        <Route path="/ClientOnboardingForm" element={<ClientOnboardingForm  setNavabr={setNavabr}/>} />
+        <Route path="/OurWorks" element={<OurWorks props={'We’d love to work with you – no matter where you’re starting from.'} setNavabr={setNavabr} setFromslow={setFromslow} />} />
       </Routes>
       <Footer />
     </>

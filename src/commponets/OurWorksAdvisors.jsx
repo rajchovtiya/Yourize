@@ -10,7 +10,7 @@ function OurWorksAdvisors() {
             ></div>
 
             {/* Content */}
-            <div className="relative z-50 flex flex-col items-center justify-center w-full h-[450px] sm:h-[500px] px-4 sm:px-6 md:px-10 text-center">
+            <div className="relative z-50 flex flex-col items-center justify-center w-full h-[450px] sm:h-[580px] px-4 sm:px-6 md:px-10 text-center">
                 <h1 className="text_color2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">Work That Speaks</h1>
                 <h1 className="text_color2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">for Us – and for Our</h1>
                 <h1 className="text_color2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold linear_gradient">

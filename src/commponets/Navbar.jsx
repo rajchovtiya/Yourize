@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CiMenuBurger } from "react-icons/ci";
 import { NavLink } from 'react-router-dom';
 
-function Navbar({ navabr }) {
+function Navbar({ navabr, setFromslow }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -10,7 +10,9 @@ function Navbar({ navabr }) {
       <nav className={`bg-black padding flex items-center justify-between h-[70px] relative ${navabr}`}>
         {/* Logo */}
         <NavLink to={'/'} className="absolute left-4 top-1/2 transform -translate-y-1/2 ">
-          <img src="./img/Logo (2).png" alt="Logo" className="max-w-[140px] md:max-w-[183px]" />
+          <div>
+            <img src="./img/Logo (2).png" alt="Logo" className="max-w-[140px] md:max-w-[183px]" />
+          </div>
         </NavLink>
 
         {/* Desktop Nav Links */}
@@ -20,10 +22,11 @@ function Navbar({ navabr }) {
             <NavLink to={'/Pricing'} className="text_color font-light cursor-pointer">Prices</NavLink>
             <NavLink to={'/OurWorks'} className="text_color font-light cursor-pointer">Our Works</NavLink>
           </ul>
-          <NavLink to={'/ClientOnboardingForm'} className="py-2 px-6 rounded-2xl border border-[#FAC817] shadow text_color font-light ml-4 hover:bg-[#FAC817] hover:text-black transition-colors duration-300">
+          <div onClick={() => { setFromslow(true) }} className="py-2 cursor-pointer px-6 rounded-2xl border border-[#FAC817] shadow text_color font-light ml-4 hover:bg-[#FAC817] hover:text-black transition-colors duration-300">
             Book Demo
-          </NavLink>
+          </div>
         </div>
+
 
         {/* Hamburger Icon */}
         <div className="md:hidden ml-auto z-50">

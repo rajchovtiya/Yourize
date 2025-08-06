@@ -5,7 +5,7 @@ const OurOfferingsData = [
         id: 1,
         image: "./img/box1.png",
         title: "Branding ",
-        title2:"& Content Creation",
+        title2: "& Content Creation",
         description: [
             "Personalized marketing collaterals (posts, creatives, brand kits)",
             "Website creation & visual branding (logo, color palette, business cards)",
@@ -18,7 +18,7 @@ const OurOfferingsData = [
         id: 2,
         image: "./img/box2.png",
         title: "Social Media ",
-        title2:"& Outreach",
+        title2: "& Outreach",
         description: [
             "Done-for-you social media management",
             "Predefined email & WhatsApp templates",
@@ -31,7 +31,7 @@ const OurOfferingsData = [
         id: 3,
         image: "./img/box3.png",
         title: "Smart Tech ",
-        title2:"& Automation",
+        title2: "& Automation",
         description: [
             "Client onboarding workflows",
             "Automated portfolio reviews",
@@ -44,7 +44,7 @@ const OurOfferingsData = [
         id: 4,
         image: "./img/box4.png",
         title: "Learning",
-        title2:"& Community",
+        title2: "& Community",
         description: [
             "Learning modules for MFDs & RIAs",
             "Exclusive webinars & masterclasses",
@@ -56,7 +56,7 @@ const OurOfferingsData = [
         id: 5,
         image: "./img/box5.png",
         title: "Client Engagement ",
-        title2:"& Advisory Support",
+        title2: "& Advisory Support",
         description: [
             "MF research tools (curated fund comparisons, analysis)",
             "Goal-based financial calculators",
@@ -91,9 +91,9 @@ function OurOfferings() {
                 {OurOfferingsData.map((item) => (
                     <div
                         key={item.id}
-                        className="w-full sm:w-[300px] md:w-[326px] border border-[#FAC817] rounded-[38px] overflow-hidden relative bg-black shadow-lg px-4 py-6 h-[540px] boxswdobox_shadow4"
+                        className="w-full sm:w-[300px] md:w-[340px] border border-[#FAC817] rounded-[38px] overflow-hidden relative bg-black shadow-lg px-4 py-6 h-[540px] boxswdobox_shadow4"
                     >
-                        <div className="absolute w-full max-h-[190px]">
+                        <div className="absolute w-full max-h-[190px] ">
                             <img
                                 src="./img/linebox.png"
                                 alt=""
@@ -101,7 +101,7 @@ function OurOfferings() {
                             />
                         </div>
                         <div className="w-full flex items-center justify-center mt-4">
-                            <div className="w-[90%] h-[147px] border border-[#FAC817] rounded-2xl flex items-center justify-center relative z-50">
+                            <div className="w-[90%] h-[147px] border border-[#FAC817] rounded-2xl flex items-center justify-center relative z-50 boxborders">
                                 <img src={item.image} alt={item.title} className="object-contain h-[100px]" />
                                 <div className="absolute top-0 h-[50%] w-full rounded-t-2xl opacity-40 blur-sm z-0 bg-[#FAC817]"></div>
                             </div>
@@ -109,7 +109,7 @@ function OurOfferings() {
                         <h2 className="text-center text-xl sm:text-2xl font-medium text_color mt-6">
                             {item.title}
                         </h2>
-                         <h2 className="text-center text-xl sm:text-2xl font-medium text-[#9F7F10] ">
+                        <h2 className="text-center text-xl sm:text-2xl font-medium text-[#9F7F10] ">
                             {item.title2}
                         </h2>
                         <div className="mt-4 space-y-3">

@@ -91,6 +91,9 @@ filter: drop-shadow(2px 7px 17px #FAC817 );
     height: 500px;
 }
 }
+.boxborders{
+    box-shadow: 1px 2px 91px -23px #FAC817;
+}
 
 .boxswdobox_shadow5{
     box-shadow: -1px -1px 47px -15px #FAC817;
