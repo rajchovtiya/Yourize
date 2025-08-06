@@ -40,7 +40,6 @@ const Footer = () => {
                 {/* Contact & Socials */}
                 <div>
                     <h2 className="text-white text-lg font-semibold mb-4">Contact</h2>
-                    <p className="text-sm mb-1">📞 +91-9643097342</p>
                     <p className="text-sm mb-1 hover:text-yellow-400 cursor-pointer">📧 Support : Support@yourize.in</p>
                     <p className="text-sm mb-4 hover:text-yellow-400 cursor-pointer">📧 Enquiry : connect@protip.in</p>
                     <div className="flex justify-center md:justify-start space-x-4 text-xl mt-4">

@@ -23,7 +23,7 @@ function HomeHarder({ setFromslow }) {
                 <h1 className="text_color2 text-3xl sm:text-5xl md:text-6xl font-normal mt-1 drop_shadow">
                     More clients and
                 </h1>
-                <h1 className="text-3xl sm:text-5xl md:text-6xl font-medium linear_gradient ">
+                <h1 className="text-3xl sm:text-5xl md:text-6xl font-medium linear_gradient drop_shadow4 ">
                     Grow your AUM.
                 </h1>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IoMdClose } from "react-icons/io";
 import { MdCheck } from "react-icons/md";
 
@@ -55,7 +55,9 @@ const featureList = [
     'Community Access-Yourize Circle'
 ];
 
-const PricingChat = () => {
+const PricingChart = () => {
+    const [selectedPlan, setSelectedPlan] = useState('Growth');
+
     return (
         <div className="mt-16 bg-black text-white p-4">
             <div className="overflow-x-auto">
@@ -63,51 +65,64 @@ const PricingChat = () => {
                     <table className="min-w-full border-separate border-spacing-0 rounded-lg">
                         <thead>
                             <tr>
-                                <th className="p-4 text-left w-64 bg-black border-b border-white/10"></th>
-                                {plans.map((plan, index) => (
-                                    <th
-                                        key={index}
-                                        className={`p-4 text-2xl text-center font-normal border-b border-white/10
-                                        ${plan.name === 'Growth' ? 'bg-[#2A2103] ' : ' text-white'}`}
-                                    >
-                                        <div className="flex flex-col items-center gap-2">
-                                            <span>{plan.name}</span>
-                                            <button
-                                                className={`text-xs px-12 py-3 rounded-xl border font-medium
-                                                ${plan.name === 'Growth'
-                                                        ? 'border-[#c7ad4d] bg-[#FAC817] text-white chatbox'
-                                                        : 'border-gray-300 bg-white/10 text-white hover:bg-white/20'}`}
-                                            >
-                                                Get Started
-                                            </button>
-                                        </div>
-                                    </th>
-                                ))}
+                                <th className="p-4 text-left w-64 border-b border-white/10 sticky left-0 z-10 bg-black"></th>
+                                {plans.map((plan, index) => {
+                                    const isSelected = selectedPlan === plan.name;
+                                    return (
+                                        <th
+                                            key={index}
+                                            className={`p-4 text-2xl text-center font-normal border-b border-white/10
+                                            sticky z-10 ${index === 0 ? 'left-[16rem]' : ''} 
+                                            ${isSelected ? 'bg-[#2A2103]' : 'bg-black'}`}
+                                        >
+                                            <div className="flex flex-col items-center gap-2">
+                                                <span>{plan.name}</span>
+                                                <button
+                                                    onClick={() => setSelectedPlan(plan.name)}
+                                                    className={`text-xs px-12 py-3 rounded-xl border font-medium
+                                                        ${isSelected
+                                                            ? 'border-[#c7ad4d] bg-[#FAC817] text-black hover:bg-[#e9bb14]'
+                                                            : 'border-gray-300 bg-white/10 text-white hover:bg-white/20'
+                                                        }`}
+                                                >
+                                                    Get Started
+                                                </button>
+                                            </div>
+                                        </th>
+                                    );
+                                })}
                             </tr>
                         </thead>
                         <tbody>
                             {/* Price row */}
                             <tr>
-                                <td className="p-4 text-left text-sm bg-black font-medium border-b border-white/10">Price</td>
-                                {plans.map((plan, i) => (
-                                    <td
-                                        key={i}
-                                        className={`p-2 md:p-4 text-center font-normal  border-b border-white/10
-                                        ${plan.name === 'Growth' ? 'bg-[#2A2103]' : ' text-white opacity-80'}`}
-                                    >
-                                        {plan.price}
-                                    </td>
-                                ))}
+                                <td className="p-4 text-left text-sm font-medium border-b border-white/10 sticky left-0 z-10 bg-black">
+                                    Price
+                                </td>
+                                {plans.map((plan, i) => {
+                                    const isSelected = selectedPlan === plan.name;
+                                    return (
+                                        <td
+                                            key={i}
+                                            className={`p-2 md:p-4 text-center font-normal border-b border-white/10
+                                            ${isSelected ? 'bg-[#2A2103]' : 'bg-black text-white opacity-80'}`}
+                                        >
+                                            {plan.price}
+                                        </td>
+                                    );
+                                })}
                             </tr>
 
-                            {/* Features */}
+                            {/* Feature rows */}
                             {featureList.map((feature, index) => (
                                 <tr key={index}>
-                                    <td className="p-3 text-wrap md:p-4 text-left text-sm bg-black border-b border-white/10">{feature}</td>
+                                    <td className="p-3 md:p-4 text-left text-sm bg-black border-b border-white/10 sticky left-0 z-10">
+                                        {feature}
+                                    </td>
                                     {plans.map((plan, i) => {
                                         const value = plan.features[index];
+                                        const isSelected = selectedPlan === plan.name;
 
-                                        // Logic to handle true/false, text, and "true(something)"
                                         let content;
                                         if (value === true) {
                                             content = <MdCheck className="text-white text-xl mx-auto" />;
@@ -128,8 +143,8 @@ const PricingChat = () => {
                                         return (
                                             <td
                                                 key={i}
-                                                className={`p-2 md:p-4 text-center border-b border-white/10 text-wrap
-                                                ${plan.name === 'Growth' ? 'bg-[#2A2103] ' : ' text-white'}`}
+                                                className={`p-2 md:p-4 text-center border-b border-white/10 text-wrap 
+                                                ${isSelected ? 'bg-[#2A2103]' : 'bg-black text-white'}`}
                                             >
                                                 {content}
                                             </td>
@@ -145,4 +160,4 @@ const PricingChat = () => {
     );
 };
 
-export default PricingChat;
+export default PricingChart;

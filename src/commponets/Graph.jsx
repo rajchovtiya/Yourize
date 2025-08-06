@@ -23,8 +23,8 @@ function Graph() {
 
             {/* Background Rings - Responsive & Layered */}
             {/* Ring 1 */}
-            <div className='absolute top-[-60%] md:top-[-25%] lg:top-[-35%] w-full left-0 px-[5%] md:px-[8%] z-10'>
-                <div className='w-full flex justify-center items-center'>
+            <div className='absolute top-[-60%] md:top-[-25%] lg:top-[-35%] w-full left-0 px-[5%] md:px-[8%] z-10 '>
+                <div className='w-full flex justify-center items-center drop_shadow4 opacity-40'>
                     <img src="./img/Ring1.png" alt="Ring1"
                         className='w-full h-[350px] md:h-[700px] lg:h-[900px] drop_shadow' />
                 </div>
@@ -32,14 +32,14 @@ function Graph() {
 
             {/* Ring 2 */}
             <div className='absolute top-[-50%] md:top-[-20%] lg:top-[-25%] w-full left-0 px-[10%] md:px-[17%] z-10'>
-                <div className='w-full flex justify-center items-center'>
+                <div className='w-full flex justify-center items-center opacity-15'>
                     <img src="./img/Ring2.png" alt="Ring2"
                         className='w-full h-[350px] md:h-[700px] lg:h-[900px] drop_shadow' />
                 </div>
             </div>
 
             {/* Ring 3 */}
-            <div className='absolute top-[-35%] md:top-[-15%] lg:top-[-15%] w-full left-0 px-[15%] md:px-[25%] z-10'>
+            <div className='absolute top-[-35%] md:top-[-15%] lg:top-[-15%] w-full left-0 px-[15%] md:px-[25%] z-10 opacity-20'>
                 <div className='w-full flex justify-center items-center'>
                     <img src="./img/Ring3.png" alt="Ring3"
                         className='w-full h-[350px] md:h-[700px] lg:h-[900px] drop_shadow2' />
