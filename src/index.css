@@ -104,6 +104,11 @@ filter: drop-shadow(2px 7px 17px #FAC817 );
 .borders{
     border: 1px solid #474444;
 }
+@media(max-width:1298px){
+    .costmleft{
+        margin-left: 80%;
+    }
+}
 
 /* Hide scrollbar for Chrome, Safari, and Opera */
 .scrollbar-hide::-webkit-scrollbar {

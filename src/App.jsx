@@ -22,7 +22,7 @@ function App() {
         <Route path="/Pricing" element={<Pricing setNavabr={setNavabr} />} />
         <Route path="/OurWorks" element={<OurWorks props={'We’d love to work with you – no matter where you’re starting from.'} setNavabr={setNavabr} setFromslow={setFromslow} />} />
       </Routes>
-      <Footer />
+      <Footer setFromslow={setFromslow} />
     </>
   )
 }

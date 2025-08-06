@@ -25,13 +25,13 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
     return (
         <>
             {fromslow === true ?
-                < div className={`fixed inset-0 w-full z-[300] min-h-screen flex items-center justify-center bg-black/70 backdrop-blur-sm px-4 overflow-y-auto ${show === true ? "block" : "hidden"}`}>
+                < div className={`fixed inset-0 w-full z-[300] min-h-screen flex items-center justify-center bg-black/70 backdrop-blur-sm px-4 overflow-y-auto padding ${show === true ? "block" : "hidden"}`}>
                     {/* Background Image */}
                     <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: `url('./img/linebox.png')` }}></div>
 
                     {/* Form Container */}
                     <div className={`
-                        relative z-10 w-full max-w-4xl transition-all duration-500 ease-in-out transform
+                        relative z-10 w-full md:-[50%] max-w-4xl transition-all duration-500 ease-in-out transform
                         ${show ? "opacity-100 scale-100" : "opacity-0 scale-95"}
                     `}>
                         {/* Close Button */}
