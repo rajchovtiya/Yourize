@@ -40,7 +40,7 @@ function Navbar() {
               <NavLink to={'/Pricing'} className="text_color font-light cursor-pointer" onClick={() => { setMenuOpen(false) }}>Prices</NavLink>
               <NavLink to={'/OurWorks'} className="text_color font-light cursor-pointer" onClick={() => { setMenuOpen(false) }}>Our Works</NavLink>
             </ul>
-            <NavLink to={'/ClientOnboardingForm'} className="py-2 px-4 rounded-2xl border border-[#FAC817] shadow text_color font-light">
+            <NavLink to={'/ClientOnboardingForm'} className="py-2 px-4 rounded-2xl border border-[#FAC817] shadow text_color font-light" onClick={() => { setMenuOpen(false) }}>
               Book Demo
             </NavLink>
           </div>
