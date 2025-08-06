@@ -16,7 +16,7 @@ function Footer() {
                     <ul className='w-full md:w-full flex flex-wrap justify-center  md:justify-end gap-4 mt-4 md:mt-0'>
                         <NavLink to={'/'} className='text_color2 cursor-pointer'>Home</NavLink>
                         <NavLink to={'/offering'} className='text_color2 cursor-pointer'>Offering</NavLink>
-                        <NavLink to={'/Pricings'} className='text_color2 cursor-pointer'>Prices</NavLink>
+                        <NavLink to={'/Pricing'} className='text_color2 cursor-pointer'>Prices</NavLink>
                         <NavLink to={'/OurWorks'} className='text_color2 cursor-pointer'>Our Work</NavLink>
                     </ul>
                 </div>
@@ -66,10 +66,10 @@ function Footer() {
 
                     {/* Address */}
                     <div className='text_color'>
-                        <p>WeWork Latitude, 9th floor, RMZ</p>
-                        <p>Latitude Commercial, Bellary Road,</p>
-                        <p>Hebbal, Near Godrej Apt, Bangalore,</p>
-                        <p>Karnataka 560024</p>
+                        <p className='text-right'>WeWork Latitude, 9th floor, RMZ</p>
+                        <p className='text-right'>Latitude Commercial, Bellary Road,</p>
+                        <p className='text-right'>Hebbal, Near Godrej Apt, Bangalore,</p>
+                        <p className='text-right'>Karnataka 560024</p>
                     </div>
                 </div>
             </div>
