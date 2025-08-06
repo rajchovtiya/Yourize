@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import OurOfferings from '../commponets/OurOfferings'
 import BookDemo from '../commponets/BookDemo'
 
-function Offering({ props }) {
-    console.log(props)
+function Offering({ props, setNavabr }) {
+    useEffect(() => {
+        setNavabr('gdf')
+    }, )
+
     return (
         <div>
             <OurOfferings />

@@ -57,7 +57,7 @@ filter: drop-shadow(2px 10px 48px black);
 }
 .drop_shadow3{
 filter: drop-shadow(2px 10px 48px black);
-  box-shadow:1px 47px 218px 60px black
+  box-shadow:2px 20px 54px 9px black
 }
 .drop_shadow4{
 filter: drop-shadow(2px 7px 17px #FAC817 );
@@ -75,16 +75,21 @@ filter: drop-shadow(2px 7px 17px #FAC817 );
     box-shadow: 1px 2px 148px -18px #FAC817;
 }
 .bookdemo{
-    width: 1200px;
-    height: 663px;
+   width: 1200px;
+    height: 1200px;
     box-shadow: 5px 20px 186px 37px #FAC817;
     top: 0px;
     background-color: #FAC817;
-    opacity: 0.3;
-    top: -68%;
+    opacity: 0.6;
+    top: -250%;
     z-index: -1;
-    filter: drop-shadow(2px 7px 17px #FAC817 );
+    filter: drop-shadow(2px 7px 17px #FAC817);
 
+}
+@media(max-width:650px){
+.bookdemo{
+    height: 500px;
+}
 }
 
 .boxswdobox_shadow5{

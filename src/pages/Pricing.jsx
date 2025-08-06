@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Pricinggrow from '../commponets/Pricinggrow'
 import PricingChat from '../commponets/PricingChat'
 
-function Pricing() {
+function Pricing({ setNavabr }) {
+    useEffect(() => {
+        setNavabr('gdf')
+    }, )
     return (
         <div>
             <Pricinggrow />

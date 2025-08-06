@@ -4,11 +4,10 @@ function OurWorksAdvisors() {
     return (
         <div className="relative mt-10">
             {/* Background Image */}
-            <img
-                src="./img/linebox.png"
-                alt="Background linebox"
-                className="absolute top-0 left-0 w-full max-h-[500px] object-cover opacity-30 z-10"
-            />
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-30"
+                style={{ backgroundImage: `url('./img/linebox.png')` }}
+            ></div>
 
             {/* Content */}
             <div className="relative z-50 flex flex-col items-center justify-center w-full h-[450px] sm:h-[500px] px-4 sm:px-6 md:px-10 text-center">

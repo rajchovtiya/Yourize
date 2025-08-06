@@ -17,11 +17,24 @@ function Clients() {
             {/* Testimonial Section */}
             <div className='relative flex flex-col lg:flex-row items-center justify-evenly mt-20 gap-10'>
                 {/* Left Client Image */}
-                <img
-                    src="./img/Clients.jpg"
-                    alt="Client"
-                    className='w-40 md:w-52 lg:w-[250px] rounded-3xl shadow6 object-cover'
-                />
+                <div className='relative'>
+                    <img
+                        src="./img/Clients.jpg"
+                        alt="Client"
+                        className='w-40 md:w-52 lg:w-[250px] rounded-3xl shadow6 object-cover'
+                    />
+                    <img
+                        src="./img/Line1(1).png"
+                        alt="Decorative Line"
+                        className='hidden lg:block absolute  top-[-20%] left-[104%] '
+                    />
+                    <img
+                        src="./img/Line1(1).png"
+                        alt="Decorative Line"
+                        className='hidden lg:block absolute top-[-20%] left-[-4%] '
+                    />
+                </div>
+
 
                 {/* Middle Testimonial Text */}
                 <div className='text-center lg:text-left'>
@@ -39,16 +52,7 @@ function Clients() {
                 </div>
 
                 {/* Background lines – positioned absolutely */}
-                <img
-                    src="./img/Line1(1).png"
-                    alt="Decorative Line"
-                    className='hidden lg:block absolute top-[-20%] left-[35%] '
-                />
-                <img
-                    src="./img/Line1(1).png"
-                    alt="Decorative Line"
-                    className='hidden lg:block absolute top-[-20%] left-[14%] '
-                />
+
                 <img
                     src="./img/Line 3.png"
                     alt="Top Decorative"

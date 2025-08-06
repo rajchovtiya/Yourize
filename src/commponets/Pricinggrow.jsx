@@ -2,15 +2,14 @@ import React from 'react'
 
 function Pricinggrow() {
     return (
-        <div className='relative mt-10'>
-            <img
-                src="./img/linebox.png"
-                alt=""
-                className="absolute left-0 top-0 w-full max-h-[400px] object-cover opacity-30 z-10"
-            />
+        <div className='relative mt-2'>
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-30"
+                style={{ backgroundImage: `url('./img/linebox.png')` }}
+            ></div>
 
-            <div className='relative z-50 flex flex-col items-center justify-center w-full h-[auto] min-h-[300px] px-4 md:px-0 py-10 md:py-0'>
-                <h1 className='text_color2 text-4xl md:text-7xl linear_gradient text-center leading-tight'>
+            <div className='relative z-50 flex flex-col items-center justify-center w-full h-[300px] min-h-[450px] px-4 md:px-0  md:py-0'>
+                <h1 className='text_color2 text-[2.25rem] md:text-[4.25rem] linear_gradient text-center leading-tight'>
                     Pricing
                 </h1>
 

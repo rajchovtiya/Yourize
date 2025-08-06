@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { CiMenuBurger } from "react-icons/ci";
 import { NavLink } from 'react-router-dom';
 
-function Navbar() {
+function Navbar({ navabr }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
-      <nav className="bg-black padding flex items-center justify-between h-[70px] relative Navshadow">
+      <nav className={`bg-black padding flex items-center justify-between h-[70px] relative ${navabr}`}>
         {/* Logo */}
         <NavLink to={'/'} className="absolute left-4 top-1/2 transform -translate-y-1/2 ">
           <img src="./img/Logo (2).png" alt="Logo" className="max-w-[140px] md:max-w-[183px]" />

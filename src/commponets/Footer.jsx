@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaLinkedinIn, FaTwitter, FaFacebookF } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
+import { FiYoutube } from "react-icons/fi";
 
 function Footer() {
     return (
@@ -21,7 +22,7 @@ function Footer() {
                 </div>
 
                 {/* Contact and Terms Section */}
-                <div className='flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-between mt-10 gap-6'>
+                <div className='flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-between mt-14 gap-6'>
                     <div>
                         <p className='text_color2'>Contact details : mail and phone</p>
                         <p className='text_color2'>Support : Support@yourize.in</p>
@@ -29,8 +30,8 @@ function Footer() {
                     </div>
                     <div>
                         <p className='text_color2'>Terms & conditions</p>
-                        <p className='text_color2'>Refund policy</p>
-                        <p className='text_color2'>Privacy policy</p>
+                        <p className='text_color2 text-right'>Refund policy</p>
+                        <p className='text_color2 text-right'>Privacy policy</p>
                     </div>
                 </div>
 
@@ -39,18 +40,23 @@ function Footer() {
                     {/* Social Icons */}
                     <div className='flex gap-4 justify-center md:justify-start'>
                         <a href="https://www.linkedin.com/company/yourizein/">
-                            <div className='rounded-full flex items-center justify-center border border-gray-200 hover:bg-gray-200 hover:text-black transition-colors duration-300 h-12 w-12 md:h-16 md:w-16'>
+                            <div className='rounded-full flex items-center justify-center border border-gray-200 hover:bg-gray-200 hover:text-black transition-colors duration-300 h-12 w-12 md:h-14 md:w-14'>
                                 <FaLinkedinIn className='text_color2 text-lg md:text-xl' />
                             </div>
                         </a>
                         <a href="https://www.facebook.com/profile.php?id=61579010946823&rdid=g88VIh38GKellCiz#">
-                            <div className='rounded-full flex items-center justify-center border border-gray-200 hover:bg-gray-200 hover:text-black transition-colors duration-300 h-12 w-12 md:h-16 md:w-16'>
+                            <div className='rounded-full flex items-center justify-center border border-gray-200 hover:bg-gray-200 hover:text-black transition-colors duration-300 h-12 w-12 md:h-14 md:w-14'>
                                 <FaFacebookF className='text_color2 text-lg md:text-xl' />
                             </div>
                         </a>
-                        <div className='rounded-full flex items-center justify-center border border-gray-200 hover:bg-gray-200 hover:text-black transition-colors duration-300 h-12 w-12 md:h-16 md:w-16'>
+                        <div className='rounded-full flex items-center justify-center border border-gray-200 hover:bg-gray-200 hover:text-black transition-colors duration-300 h-12 w-12 md:h-14 md:w-14'>
                             <FaTwitter className='text_color2 text-lg md:text-xl' />
                         </div>
+                        <a href="#">
+                            <div className='rounded-full flex items-center justify-center border border-gray-200 hover:bg-gray-200 hover:text-black transition-colors duration-300 h-12 w-12 md:h-14 md:w-14'>
+                                <FiYoutube className='text_color2 text-lg md:text-xl' />
+                            </div>
+                        </a>
                     </div>
 
                     {/* Copyright */}

@@ -3,21 +3,21 @@ import { FaInstagram, FaFacebookF } from "react-icons/fa";
 
 // GALLERY DATA
 const galleryItems1 = [
-    { img: "./img/gallery1.jpg", name: "Anna Smith", role: "designer" },
-    { img: "./img/gallery2.jpg", name: "Anna Smith", role: "designer" },
-    { img: "./img/gallery3.jpg", name: "Anna Smith", role: "designer" },
-    { img: "./img/gallery1.jpg", name: "Anna Smith", role: "designer" },
-    { img: "./img/gallery2.jpg", name: "Anna Smith", role: "designer" },
-    { img: "./img/gallery3.jpg", name: "Anna Smith", role: "designer" },
+    { img: "./img/gallery1.jpg", },
+    { img: "./img/gallery2.jpg", },
+    { img: "./img/gallery3.jpg", },
+    { img: "./img/gallery1.jpg", },
+    { img: "./img/gallery2.jpg", },
+    { img: "./img/gallery3.jpg", },
 ];
 
 const galleryItems2 = [
-    { img: "./img/gallery4.jpg", name: "Anna Smith", role: "designer" },
-    { img: "./img/gallery5.jpg", name: "Anna Smith", role: "designer" },
-    { img: "./img/gallery6.jpg", name: "Anna Smith", role: "designer" },
-    { img: "./img/gallery4.jpg", name: "Anna Smith", role: "designer" },
-    { img: "./img/gallery5.jpg", name: "Anna Smith", role: "designer" },
-    { img: "./img/gallery6.jpg", name: "Anna Smith", role: "designer" },
+    { img: "./img/gallery4.jpg" },
+    { img: "./img/gallery5.jpg" },
+    { img: "./img/gallery6.jpg" },
+    { img: "./img/gallery4.jpg" },
+    { img: "./img/gallery5.jpg" },
+    { img: "./img/gallery6.jpg" },
 ];
 
 // REUSABLE SCROLLABLE GALLERY ROW
@@ -63,11 +63,10 @@ const ScrollableGalleryRow = ({ items }) => {
                         <img
                             src={item.img}
                             alt={`Work ${index + 1}`}
-                            className="w-full h-72 object-cover"
+                            className="w-full h-80 object-cover"
                         />
-                        <div className="p-4">
+                        {/* <div className="p-4">
                             <div className="flex items-center justify-between mb-2">
-                                <span className="text-lg font-semibold">{item.name}</span>
                                 <div className="flex gap-2">
                                     <a href="https://www.instagram.com/yourize.in/?igsh=MW5menNkbzBkMWI3bQ%3D%3D&utm_source=ig_contact_invite#">
                                         <FaInstagram />
@@ -77,8 +76,7 @@ const ScrollableGalleryRow = ({ items }) => {
                                     </a>
                                 </div>
                             </div>
-                            <p className="text-sm text-yellow-400">{item.role}</p>
-                        </div>
+                        </div> */}
                     </div>
                 ))}
             </div>

@@ -23,11 +23,11 @@ export default function ClientStories() {
     ];
 
     return (
-        <div className="min-h-screen bg-black z-50 flex flex-col md:flex-row items-center justify-around gap-20 px-6 py-16 mt-12 padding">
+        <div className="min-h-screen bg-black z-50 flex flex-col md:flex-row items-center justify-around gap-20 px-8 py-16 mt-12 padding">
             {cards.map((card, index) => (
                 <div
                     key={index}
-                    className="w-[490px] rounded-3xl z-50 p-6 overflow-hidden bg-black text-white shadow-xl relative"
+                    className=" w-[100%] md:w-[490px] rounded-3xl z-50 p-6 overflow-hidden bg-black text-white shadow-xl relative"
                     style={{
                         boxShadow: "0 0 35px 10px rgba(250, 204, 21, 0.5)", // Yellow glow around full card
                     }}

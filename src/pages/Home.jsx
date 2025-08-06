@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import HomeHarder from '../commponets/HomeHarder'
 import Graph from '../commponets/Graph'
 import Growth from '../commponets/Growth'
@@ -9,7 +9,10 @@ import FAQ from '../commponets/FAQ'
 import BookDemo from '../commponets/BookDemo'
 import ClientOnboardingForm from '../commponets/ClientOnboardingForm'
 
-function Home({ props }) {
+function Home({ props, setNavabr }) {
+  useEffect(() => {
+    setNavabr('Navshadow')
+  },)
   return (
     <div>
       <HomeHarder />

@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import OurWorksAdvisors from '../commponets/OurWorksAdvisors'
 import ClientStories from '../commponets/ClientStories'
 import Gallery from '../commponets/Gallery'
 import ReachandImpact from '../commponets/ReachandImpact'
 import BookDemo from '../commponets/BookDemo'
 
-function OurWorks({ props }) {
+function OurWorks({ props, setNavabr }) {
+    useEffect(() => {
+        setNavabr('gdf')
+    }, )
     return (
         <div>
             <OurWorksAdvisors />

@@ -4,7 +4,8 @@ const OurOfferingsData = [
     {
         id: 1,
         image: "./img/box1.png",
-        title: "Branding & Content Creation",
+        title: "Branding ",
+        title2:"& Content Creation",
         description: [
             "Personalized marketing collaterals (posts, creatives, brand kits)",
             "Website creation & visual branding (logo, color palette, business cards)",
@@ -16,7 +17,8 @@ const OurOfferingsData = [
     {
         id: 2,
         image: "./img/box2.png",
-        title: "Social Media & Outreach",
+        title: "Social Media ",
+        title2:"& Outreach",
         description: [
             "Done-for-you social media management",
             "Predefined email & WhatsApp templates",
@@ -28,7 +30,8 @@ const OurOfferingsData = [
     {
         id: 3,
         image: "./img/box3.png",
-        title: "Smart Tech & Automation",
+        title: "Smart Tech ",
+        title2:"& Automation",
         description: [
             "Client onboarding workflows",
             "Automated portfolio reviews",
@@ -40,7 +43,8 @@ const OurOfferingsData = [
     {
         id: 4,
         image: "./img/box4.png",
-        title: "Learning & Community",
+        title: "Learning",
+        title2:"& Community",
         description: [
             "Learning modules for MFDs & RIAs",
             "Exclusive webinars & masterclasses",
@@ -51,7 +55,8 @@ const OurOfferingsData = [
     {
         id: 5,
         image: "./img/box5.png",
-        title: "Client Engagement & Advisory Support",
+        title: "Client Engagement ",
+        title2:"& Advisory Support",
         description: [
             "MF research tools (curated fund comparisons, analysis)",
             "Goal-based financial calculators",
@@ -65,12 +70,11 @@ function OurOfferings() {
         <div>
             {/* Header Section */}
             <div className="relative mt-10 px-4 sm:px-6 lg:px-8">
-                <img
-                    src="./img/linebox.png"
-                    alt=""
-                    className="z-10 max-h-[500px] absolute left-0 object-cover w-full opacity-30"
-                />
-                <div className="h-[500px] flex items-center justify-center flex-col gap-5 z-50 relative text-center">
+                <div
+                    className="absolute inset-0 bg-cover bg-center opacity-30"
+                    style={{ backgroundImage: `url('./img/linebox.png')` }}
+                ></div>
+                <div className="h-[300px] md:h-[400px] flex items-center justify-center flex-col gap-5 z-50 relative text-center">
                     <h1 className="linear_gradient text-4xl sm:text-5xl lg:text-7xl font-normal z-50">
                         Our Offerings
                     </h1>
@@ -104,6 +108,9 @@ function OurOfferings() {
                         </div>
                         <h2 className="text-center text-xl sm:text-2xl font-medium text_color mt-6">
                             {item.title}
+                        </h2>
+                         <h2 className="text-center text-xl sm:text-2xl font-medium text-[#9F7F10] ">
+                            {item.title2}
                         </h2>
                         <div className="mt-4 space-y-3">
                             {item.description.map((point, idx) => (

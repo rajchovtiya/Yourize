@@ -4,22 +4,27 @@ import { FaStarHalf } from "react-icons/fa";
 
 function Financial() {
     return (
-        <div className='mt-16 relative'>
+        <div className="relative min-h-screen flex items-center justify-center bg-black flex-col py-10 px-4 mt-16 overflow-hidden">
             {/* Background image */}
-            <img
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-30"
+                style={{ backgroundImage: `url('./img/linebox.png')` }}
+            ></div>
+            {/* Background image */}
+            {/* <img
                 src="./img/linebox.png"
                 alt=""
-                className='z-10 max-h-[580px] object-cover w-full absolute top-[-2%] opacity-30'
-            />
+                className='z-10 max-h- object-cover w-full absolute top-[-2%] opacity-30'
+            /> */}
 
             {/* Main content */}
-            <div className='flex flex-col lg:flex-row gap-10 lg:gap-24 justify-around px-4 md:px-12 z-50 relative'>
+            <div className='flex flex-col lg:flex-row gap-10 lg:gap-24 items-center justify-around px-4 md:px-12 z-50 relative'>
 
                 {/* Rating Box */}
-                <div className='bg-black p-6 md:p-9 border mt-10 border-[#FAC817] rounded-lg w-full md:w-[400px] h-[330px] shadow6'>
+                <div className='bg-black p-6 md:p-9 border mt-10 border-[#FAC817] rounded-lg w-full md:w-[450px] h-[270px] shadow6'>
                     <h1 className='text_color2 text-xl font-semibold'>Product</h1>
                     <h1 className='text-[#FAC817] text-xl font-semibold'>Rating</h1>
-                    <h1 className='text-5xl md:text-6xl font-bold linear_gradient mt-4'>4.5</h1>
+                    <h1 className='text-5xl md:text-6xl font-extrabold linear_gradient mt-4'>4.5</h1>
 
                     <div className='flex items-center justify-between w-full mt-4'>
                         <div className='flex items-center gap-2'>
@@ -38,10 +43,10 @@ function Financial() {
 
                 {/* Text + List Section */}
                 <div className='mt-10 lg:mt-16 w-full max-w-3xl'>
-                    <h1 className='text-4xl md:text-5xl lg:text-6xl text_color2 font-bold text-center'>
+                    <h1 className='text-4xl md:text-5xl lg:text-6xl text_color2 font-bold text-center md:text-start'>
                         Why Financial
                     </h1>
-                    <h1 className='text-center linear_gradient text-3xl md:text-4xl lg:text-5xl font-semibold mt-1'>
+                    <h1 className='text-center linear_gradient text-3xl md:text-4xl lg:text-5xl font-semibold mt-1 md:text-start'>
                         Professionals Love Yourize?
                     </h1>
 
