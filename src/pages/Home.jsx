@@ -7,18 +7,19 @@ import Financial from '../commponets/Financial'
 import Clients from '../commponets/Clients'
 import FAQ from '../commponets/FAQ'
 import BookDemo from '../commponets/BookDemo'
+import ClientOnboardingForm from '../commponets/ClientOnboardingForm'
 
-function Home({props}) {
+function Home({ props }) {
   return (
     <div>
-         <HomeHarder/>
-         <Graph/>
-         <Growth/>
-         <GrowWithUs/>
-         <Financial/>
-         <Clients/>
-         <FAQ/>
-         <BookDemo props={props}/>
+      <HomeHarder />
+      <Graph />
+      <Growth />
+      <GrowWithUs />
+      <Financial />
+      <Clients />
+      <FAQ />
+      <BookDemo props={props} />
     </div>
   )
 }

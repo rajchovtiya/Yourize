@@ -47,15 +47,15 @@ function GrowWithUs() {
     return (
         <div className='padding mt-11'>
             <div className='flex items-center justify-center flex-col'>
-                <h1 className=' text-7xl text_color2'>Everything you need to Grow</h1>
-                <h1 className='linear_gradient text-7xl mt-[20px]'>All in One Platform</h1>
-                <p className='text_color mt-8 font-light text-[20px] '>From branding to lead generation, automation to learning we have built Yourize to</p>
-                <p className='text_color font-light text-[20px]'>support every part of your journey as a financial professional</p>
+                <h1 className=' text-7xl text_color2 text-center'>Everything you need to Grow</h1>
+                <h1 className='linear_gradient text-7xl mt-[20px] text-center'>All in One Platform</h1>
+                <p className='text_color mt-8 font-light text-[20px] text-center'>From branding to lead generation, automation to learning we have built Yourize to</p>
+                <p className='text-center text_color font-light text-[20px]'>support every part of your journey as a financial professional</p>
             </div>
-            <div className='flex items-center justify-between mt-10 flex-wrap'>
+            <div className='flex items-center md:items-center justify-center md:justify-between mt-10 flex-wrap gap-6'>
                 {GrowWithUsData?.map((item) => {
                     return (
-                        <div key={item.id} className="w-[345px] h-[512px] rounded-[20px] bg-[#000000] relative p-6 text-white 
+                        <div key={item.id} className="w-full md:w-[345px] h-[512px] rounded-[20px] bg-[#000000] relative p-6 text-white 
                         shadow-lg overflow-hidden border border-[#FAC817] boxswdobox_shadow4">
 
                             <div className="absolute top-[-50px] left-[-50px] w-[400px] h-[400px] bg-[#FAC817] 

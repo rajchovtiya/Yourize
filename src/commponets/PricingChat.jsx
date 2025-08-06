@@ -44,65 +44,67 @@ const featureList = [
 
 const PricingChat = () => {
     return (
-        <div className="overflow-x-auto p-4 mt-12 bg-black text-white padding">
-            <div className='border border-white/10 py-[2%] px-[4%] rounded-2xl'>
-                <table className="min-w-full border-separate border-spacing-0 rounded-lg ">
-                    <thead>
-                        <tr>
-                            <th className="p-4 text-left w-64 bg-black border-b border-white/10"></th>
-                            {plans.map((plan, index) => (
-                                <th
-                                    key={index}
-                                    className={`p-4 text-center font-semibold border-b border-white/10
-                                    ${plan.name === 'Growth' ? 'bg-[#e4c041] text-black' : 'bg-white/3 text-white'}`}
-                                >
-                                    <div className="flex flex-col items-center gap-2">
-                                        <span>{plan.name}</span>
-                                        <button
-                                            className={`text-xs px-6 py-2 rounded-2xl border font-medium
-                                            ${plan.name === 'Growth'
-                                                    ? 'border-[#c7ad4d] bg-[#FAC817]  text-white'
-                                                    : 'border-gray-300 bg-white/10 text-white hover:bg-white/20'}`}
-                                        >
-                                            Get Started
-                                        </button>
-                                    </div>
-                                </th>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* Price row */}
-                        <tr>
-                            <td className="p-4 text-left text-sm bg-black font-medium border-b border-white/10">Price</td>
-                            {plans.map((plan, i) => (
-                                <td
-                                    key={i}
-                                    className={`p-4 text-center font-semibold border-b border-white/10
-                                    ${plan.name === 'Growth' ? 'bg-[#e4c041] text-black' : 'bg-white/3 text-white'}`}
-                                >
-                                    {plan.price}
-                                </td>
-                            ))}
-                        </tr>
-
-                        {/* Features */}
-                        {featureList.map((feature, index) => (
-                            <tr key={index}>
-                                <td className="p-4 text-left text-sm bg-black border-b border-white/10">{feature}</td>
+        <div className="mt-40 bg-black text-white p-4">
+            <div className="overflow-x-auto">
+                <div className='border border-white/10 py-[2%] px-[4%] rounded-2xl min-w-[800px] sm:min-w-full'>
+                    <table className="min-w-full border-separate border-spacing-0 rounded-lg">
+                        <thead>
+                            <tr>
+                                <th className="p-4 text-left w-64 bg-black border-b border-white/10"></th>
+                                {plans.map((plan, index) => (
+                                    <th
+                                        key={index}
+                                        className={`p-4 text-center font-semibold border-b border-white/10
+                                        ${plan.name === 'Growth' ? 'bg-[#e4c041] filters text-black' : 'bg-white/3 text-white'}`}
+                                    >
+                                        <div className="flex flex-col items-center gap-2">
+                                            <span>{plan.name}</span>
+                                            <button
+                                                className={`text-xs px-6 py-2 rounded-2xl border font-medium
+                                                ${plan.name === 'Growth'
+                                                        ? 'border-[#c7ad4d] bg-[#FAC817] text-white'
+                                                        : 'border-gray-300 bg-white/10 text-white hover:bg-white/20'}`}
+                                            >
+                                                Get Started
+                                            </button>
+                                        </div>
+                                    </th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {/* Price row */}
+                            <tr>
+                                <td className="p-4 text-left text-sm bg-black font-medium border-b border-white/10">Price</td>
                                 {plans.map((plan, i) => (
                                     <td
                                         key={i}
-                                        className={`p-4 text-center border-b border-white/10
-                                        ${plan.name === 'Growth' ? 'bg-[#e4c041] text-black' : 'bg-white/3 text-white'}`}
+                                        className={`p-4 text-center font-semibold border-b border-white/10
+                                        ${plan.name === 'Growth' ? 'bg-[#e4c041] filters text-black' : 'bg-white/3 text-white'}`}
                                     >
-                                        {plan.features[index]}
+                                        {plan.price}
                                     </td>
                                 ))}
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+
+                            {/* Features */}
+                            {featureList.map((feature, index) => (
+                                <tr key={index}>
+                                    <td className="p-4 text-left text-sm bg-black border-b border-white/10">{feature}</td>
+                                    {plans.map((plan, i) => (
+                                        <td
+                                            key={i}
+                                            className={`p-4 text-center border-b border-white/10
+                                            ${plan.name === 'Growth' ? 'bg-[#e4c041] filters text-black' : 'bg-white/3 text-white'}`}
+                                        >
+                                            {plan.features[index]}
+                                        </td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

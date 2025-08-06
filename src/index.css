@@ -45,6 +45,9 @@ body{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.hedingboxsedo{
+    box-shadow: 1px 2px 134px 16px #FAC817;
+}
 .drop_shadow{
 filter: drop-shadow(6px 3px 30px #FAC817);
 }
@@ -61,6 +64,9 @@ filter: drop-shadow(2px 7px 17px #FAC817 );
 }
 .boxsedo{
     box-shadow: -2px 20px 16px 87px #FAC817;
+}
+.fromdedo{
+    box-shadow: 0px 0px 37px #FAC817;
 }
 .boxswdobox_shadow4{
     box-shadow: -1px -1px 15px -5px #FAC817;
@@ -110,4 +116,9 @@ filter: drop-shadow(2px 7px 17px #FAC817 );
 }
 .boxbottom{
     box-shadow: -6px -20px 72px 48px #050208;
+}
+/* bg-gradient-to-br from-yellow-300 to-yellow-500 */
+.filters{
+    /* filter: contrast(0.6); */
+    opacity: 0.5;
 }

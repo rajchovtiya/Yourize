@@ -2,19 +2,30 @@ import React from 'react'
 
 function Pricinggrow() {
     return (
-        <div>
-            <div className='mt-10'>
-                <img
-                    src="./img/linebox.png"
-                    alt=""
-                    className="z-10 max-h-[400px] absolute left-0 object-cover w-full opacity-30"
-                />
-                <div className='flex items-center justify-center flex-col w-full h-[400px] relative z-50'>
-                    <h1 className='text_color2 text-7xl linear_gradient'>Pricing</h1>
-                    <p className='text_color2 mt-7  opacity-70 text-[15px]'>Everything you need to grow your financial advisory parctice- in one place. Yourize delivers</p>
-                    <p className='text_color2 opacity-70 text-[15px] '>Powerful branding, effortless automation, client education, and a thriving community so you</p>
-                    <p className='text_color2 opacity-70 text-[15px] '>can focus on What matters most: serving your client and building trust.</p>
+        <div className='relative mt-10'>
+            <img
+                src="./img/linebox.png"
+                alt=""
+                className="absolute left-0 top-0 w-full max-h-[400px] object-cover opacity-30 z-10"
+            />
 
+            <div className='relative z-50 flex flex-col items-center justify-center w-full h-[auto] min-h-[300px] px-4 md:px-0 py-10 md:py-0'>
+                <h1 className='text_color2 text-4xl md:text-7xl linear_gradient text-center leading-tight'>
+                    Pricing
+                </h1>
+
+                <div className="mt-6 space-y-2 text-center max-w-[700px]">
+                    <p className='text_color2 text-sm md:text-base opacity-70'>
+                        Everything you need to grow your financial advisory practice — in one place.
+                        Yourize delivers
+                    </p>
+                    <p className='text_color2 text-sm md:text-base opacity-70'>
+                        Powerful branding, effortless automation, client education, and a thriving
+                        community so you
+                    </p>
+                    <p className='text_color2 text-sm md:text-base opacity-70'>
+                        can focus on what matters most: serving your clients and building trust.
+                    </p>
                 </div>
             </div>
         </div>

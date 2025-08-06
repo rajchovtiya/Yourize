@@ -69,8 +69,12 @@ const ScrollableGalleryRow = ({ items }) => {
                             <div className="flex items-center justify-between mb-2">
                                 <span className="text-lg font-semibold">{item.name}</span>
                                 <div className="flex gap-2">
-                                    <FaInstagram />
-                                    <FaFacebookF />
+                                    <a href="https://www.instagram.com/yourize.in/?igsh=MW5menNkbzBkMWI3bQ%3D%3D&utm_source=ig_contact_invite#">
+                                        <FaInstagram />
+                                    </a>
+                                    <a href="https://www.facebook.com/profile.php?id=61579010946823&rdid=2bQKKCnhAyB3YdZl#">
+                                        <FaFacebookF />
+                                    </a>
                                 </div>
                             </div>
                             <p className="text-sm text-yellow-400">{item.role}</p>

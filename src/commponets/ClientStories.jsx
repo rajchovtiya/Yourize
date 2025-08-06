@@ -23,7 +23,7 @@ export default function ClientStories() {
     ];
 
     return (
-        <div className="min-h-screen bg-black z-50 flex flex-col md:flex-row items-center justify-around gap-10 px-6 py-16 mt-12">
+        <div className="min-h-screen bg-black z-50 flex flex-col md:flex-row items-center justify-around gap-20 px-6 py-16 mt-12 padding">
             {cards.map((card, index) => (
                 <div
                     key={index}

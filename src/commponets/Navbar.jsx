@@ -20,9 +20,9 @@ function Navbar() {
             <NavLink to={'/Pricing'} className="text_color font-light cursor-pointer">Prices</NavLink>
             <NavLink to={'/OurWorks'} className="text_color font-light cursor-pointer">Our Works</NavLink>
           </ul>
-          <button className="py-2 px-6 rounded-2xl border border-[#FAC817] shadow text_color font-light ml-4 hover:bg-[#FAC817] hover:text-black transition-colors duration-300">
+          <NavLink to={'/ClientOnboardingForm'} className="py-2 px-6 rounded-2xl border border-[#FAC817] shadow text_color font-light ml-4 hover:bg-[#FAC817] hover:text-black transition-colors duration-300">
             Book Demo
-          </button>
+          </NavLink>
         </div>
 
         {/* Hamburger Icon */}
@@ -34,15 +34,15 @@ function Navbar() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden absolute top-[70px] left-0 w-full bg-black flex flex-col items-center gap-4 py-4 border-t border-[#FAC817] z-40">
+          <div className="md:hidden absolute top-[70px] left-0 z-[100] w-full bg-black flex flex-col items-center gap-4 py-4  ">
             <ul className="flex flex-col items-center gap-3">
-              <NavLink to={'/offering'} className="text_color font-light cursor-pointer">Offerings</NavLink>
-              <NavLink to={'/Pricing'} className="text_color font-light cursor-pointer">Prices</NavLink>
-              <NavLink to={'/OurWorks'} className="text_color font-light cursor-pointer">Our Works</NavLink>
+              <NavLink to={'/offering'} className="text_color font-light cursor-pointer" onClick={() => { setMenuOpen(false) }}>Offerings</NavLink>
+              <NavLink to={'/Pricing'} className="text_color font-light cursor-pointer" onClick={() => { setMenuOpen(false) }}>Prices</NavLink>
+              <NavLink to={'/OurWorks'} className="text_color font-light cursor-pointer" onClick={() => { setMenuOpen(false) }}>Our Works</NavLink>
             </ul>
-            <button className="py-2 px-4 rounded-2xl border border-[#FAC817] shadow text_color font-light">
+            <NavLink to={'/ClientOnboardingForm'} className="py-2 px-4 rounded-2xl border border-[#FAC817] shadow text_color font-light">
               Book Demo
-            </button>
+            </NavLink>
           </div>
         )}
       </nav>
