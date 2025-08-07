@@ -11,7 +11,6 @@ import { useState } from "react"
 function App() {
   const [navabr, setNavabr] = useState('Navshadow')
   const [fromslow, setFromslow] = useState(false)
-  console.log(fromslow)
   return (
     <>
       <Navbar navabr={navabr} setFromslow={setFromslow} />

@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 export default function ClientOnboardingForm({ fromslow, setFromslow }) {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [show, setShow] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
 
     const onSubmit = async (data) => {
-        console.log("Form submitted:", data);
+        setIsLoading(true);
 
         const payload = {
             ...data,
@@ -24,24 +26,26 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
             });
 
             const result = await res.json();
-
             if (result.success) {
-                console.log("Success", result);
-                reset(); // reset form
+                reset();
+                setTimeout(() => {
+                    setShow(false);
+                    setIsLoading(false);
+                    setShowSuccess(true);
+                }, 1000);
             } else {
                 console.error("Submission failed", result);
+                setIsLoading(false);
             }
         } catch (err) {
             console.error("Error submitting form", err);
+            setIsLoading(false);
         }
     };
 
     useEffect(() => {
-        if (fromslow) {
-            setTimeout(() => setShow(true), 100);
-        } else {
-            setShow(false);
-        }
+        if (fromslow) setTimeout(() => setShow(true), 100);
+        else setShow(false);
     }, [fromslow]);
 
     const handleClose = () => {
@@ -51,115 +55,117 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
 
     return (
         <>
+            {/* FORM MODAL */}
             {fromslow && (
-                <div className={`fixed inset-0 w-full z-[300] min-h-screen flex items-center justify-center bg-black/70 backdrop-blur-sm px-4 overflow-y-auto ${show ? "block" : "hidden"}`}>
-                    <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: `url('./img/linebox.png')` }}></div>
-
-                    <div className={`relative z-10 w-full max-w-4xl transition-all duration-500 ease-in-out transform ${show ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
-
-                        {/* Close Button */}
-                        <div className="flex justify-end mb-2">
-                            <button
-                                onClick={handleClose}
-                                className="text-white text-2xl font-bold bg-black px-3 py-1 rounded hover:text-yellow-400 transition"
-                            >
-                                ✕
-                            </button>
-                        </div>
+                <div className={`fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4 ${show ? "block" : "hidden"}`}>
+                    <div className={`relative max-w-2xl w-full bg-white rounded-2xl p-8 shadow-2xl transition-transform transform ${show ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}>
+                        {/* Close */}
+                        <button onClick={handleClose} className="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl font-bold">
+                            &times;
+                        </button>
 
                         {/* Header */}
-                        <div className="flex items-center justify-center">
-                            <h2 className="text-center text-white text-xl sm:text-2xl font-bold mb-6 bg-black border border-[#FAC817] rounded-full px-6 sm:px-10 py-2 shadow-yellow-500 shadow-md w-[400px] h-[53px]">
-                                Book Demo For Free
-                            </h2>
-                        </div>
+                        <h2 className="text-center text-2xl sm:text-3xl font-bold text-black mb-6">
+                            Book Your Free Demo
+                        </h2>
 
-                        {/* Form Box */}
-                        <div className="bg-white rounded-[30px] px-6 sm:px-8 py-6 sm:py-8 border border-white/20 backdrop-blur-md shadow-yellow-400 shadow-md">
-                            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-6">
-                                {/* Input Fields */}
-                                {["name", "contact", "email"].map((field, index) => (
-                                    <div key={index} className="relative">
-                                        <div className="absolute left-4 top-3 bg-black rounded h-[33px] w-[96px] flex items-center justify-center">
-                                            <label className="text-yellow-400 text-sm font-bold">
-                                                {field === "name" ? "Name" : field === "contact" ? "Contact" : "Mail"}
-                                            </label>
-                                        </div>
-                                        <input
-                                            {...register(field, {
-                                                required: `${field.charAt(0).toUpperCase() + field.slice(1)} is required`,
-                                                ...(field === "email" && {
-                                                    pattern: {
-                                                        value: /\S+@\S+\.\S+/, message: "Invalid email address"
-                                                    }
-                                                })
-                                            })}
-                                            placeholder={
-                                                field === "name"
-                                                    ? "Your Name Here"
-                                                    : field === "contact"
-                                                        ? "Your Phone Number Here"
-                                                        : "Your E-mail Here"
-                                            }
-                                            className="w-full pl-36 py-4 rounded bg-transparent border border-[#554A26] text-black placeholder-black outline-none"
-                                        />
-                                        {errors[field] && (
-                                            <p className="text-red-500 text-xs mt-1 absolute -bottom-5 left-0">
-                                                {errors[field].message}
-                                            </p>
-                                        )}
-                                    </div>
-                                ))}
-
-                                {/* Role Dropdown */}
-                                <div className="relative">
-                                    <div className="absolute left-4 top-3 bg-black rounded h-[33px] w-[120px] flex items-center justify-center">
-                                        <label className="text-yellow-400 text-sm font-bold">I am</label>
-                                    </div>
-
-                                    <select
-                                        {...register("role", { required: "Please select an option" })}
-                                        className="w-full pl-36 py-4 rounded bg-white border border-black text-black outline-none appearance-none transition duration-300 ease-in-out focus:ring-2 focus:border-black"
-                                        defaultValue=""
-                                    >
-                                        <option value="" disabled hidden>Select Your Role</option>
-
-                                        <optgroup label="Professionals">
-                                            <option value="mutual_fund_distributor" className="bg-white text-black">Mutual Fund Distributor</option>
-                                            <option value="investment_advisor" className="bg-white text-black">Registered Investment Advisor</option>
-                                            <option value="insurance_agent" className="bg-white text-black">Insurance Agent</option>
-                                            <option value="financial_planner" className="bg-white text-black">Certified Financial Planner</option>
-                                        </optgroup>
-
-                                        <optgroup label="Organizations">
-                                            <option value="family_office" className="bg-white text-black">Family Office</option>
-                                            <option value="fintech_startup" className="bg-white text-black">Fintech Startup</option>
-                                        </optgroup>
-
-                                        <optgroup label="Other">
-                                            <option value="other" className="bg-white text-black">Other (Please specify in the message)</option>
-                                        </optgroup>
-                                    </select>
-
-                                    {errors.role && (
-                                        <p className="text-red-500 text-xs mt-1 absolute -bottom-5 left-0">
-                                            {errors.role.message}
-                                        </p>
+                        {/* Form */}
+                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                            {/* Inputs */}
+                            {[
+                                { name: "name", label: "Full Name", placeholder: "John Doe" },
+                                { name: "contact", label: "Contact", placeholder: "+91-9876543210" },
+                                { name: "email", label: "Email", placeholder: "john@example.com" }
+                            ].map(({ name, label, placeholder }) => (
+                                <div key={name}>
+                                    <label className="block mb-1 font-medium text-gray-700">{label}</label>
+                                    <input
+                                        {...register(name, {
+                                            required: `${label} is required`,
+                                            ...(name === "email" && {
+                                                pattern: {
+                                                    value: /\S+@\S+\.\S+/,
+                                                    message: "Invalid email address"
+                                                }
+                                            })
+                                        })}
+                                        placeholder={placeholder}
+                                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-400 outline-none transition"
+                                    />
+                                    {errors[name] && (
+                                        <p className="text-sm text-red-500 mt-1">{errors[name].message}</p>
                                     )}
                                 </div>
-                            </form>
-                        </div>
+                            ))}
 
-                        {/* Submit Button */}
-                        <div className="text-center">
-                            <button
-                                type="submit"
-                                className="w-full sm:w-auto bg-white text-black font-bold py-4 px-10 rounded-xl hover:bg-yellow-300 transition mt-4"
-                                onClick={handleSubmit(onSubmit)}
-                            >
-                                Book Demo
-                            </button>
-                        </div>
+                            {/* Dropdown */}
+                            <div>
+                                <label className="block mb-1 font-medium text-gray-700">I am a</label>
+                                <select
+                                    {...register("role", { required: "Please select your role" })}
+                                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-400 outline-none transition bg-white"
+                                    defaultValue=""
+                                >
+                                    <option value="" disabled hidden>Select your role</option>
+                                    <optgroup label="Professionals">
+                                        <option value="mutual_fund_distributor">Mutual Fund Distributor</option>
+                                        <option value="investment_advisor">Registered Investment Advisor</option>
+                                        <option value="insurance_agent">Insurance Agent</option>
+                                        <option value="financial_planner">Certified Financial Planner</option>
+                                    </optgroup>
+                                    <optgroup label="Organizations">
+                                        <option value="family_office">Family Office</option>
+                                        <option value="fintech_startup">Fintech Startup</option>
+                                    </optgroup>
+                                    <optgroup label="Other">
+                                        <option value="other">Other (Specify in message)</option>
+                                    </optgroup>
+                                </select>
+                                {errors.role && (
+                                    <p className="text-sm text-red-500 mt-1">{errors.role.message}</p>
+                                )}
+                            </div>
+
+                            {/* Submit Button */}
+                            <div className="text-center">
+                                <button
+                                    type="submit"
+                                    disabled={isLoading}
+                                    className={`w-full py-3 rounded-lg font-semibold transition ${isLoading
+                                        ? "bg-yellow-300 text-black cursor-not-allowed opacity-70"
+                                        : "bg-yellow-400 text-black hover:bg-yellow-500"
+                                        }`}
+                                >
+                                    {isLoading ? (
+                                        <div className="flex items-center justify-center gap-2">
+                                            <svg className="animate-spin h-5 w-5 text-black" viewBox="0 0 24 24">
+                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                                            </svg>
+                                            Submitting...
+                                        </div>
+                                    ) : (
+                                        "Submit"
+                                    )}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
+
+            {/* ✅ Success Dialog */}
+            {showSuccess && (
+                <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+                    <div className="bg-white max-w-md w-full p-8 rounded-2xl shadow-xl text-center animate-fadeIn">
+                        <h2 className="text-2xl font-bold text-green-600 mb-4">🎉 Thank You!</h2>
+                        <p className="text-gray-800 mb-6">Your enquiry has been submitted. Our team will connect with you soon.</p>
+                        <button
+                            onClick={() => setShowSuccess(false)}
+                            className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition"
+                        >
+                            Close
+                        </button>
                     </div>
                 </div>
             )}
