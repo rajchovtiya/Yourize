@@ -73,22 +73,41 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                             {/* Inputs */}
                             {[
-                                { name: "name", label: "Full Name", placeholder: "John Doe" },
-                                { name: "contact", label: "Contact", placeholder: "+91-9876543210" },
-                                { name: "email", label: "Email", placeholder: "john@example.com" }
-                            ].map(({ name, label, placeholder }) => (
+                                {
+                                    name: "name",
+                                    label: "Full Name",
+                                    placeholder: "John Doe",
+                                    validation: { required: "Full Name is required" }
+                                },
+                                {
+                                    name: "contact Number",
+                                    label: "Contact Number",
+                                    placeholder: "9876543210",
+                                    validation: {
+                                        required: "Contact Number is required",
+                                        pattern: {
+                                            value: /^[0-9]{10}$/,
+                                            message: "Contact number must be exactly 10 digits"
+                                        }
+                                    }
+                                },
+                                {
+                                    name: "email",
+                                    label: "Email",
+                                    placeholder: "john@example.com",
+                                    validation: {
+                                        required: "Email is required",
+                                        pattern: {
+                                            value: /\S+@\S+\.\S+/,
+                                            message: "Invalid email address"
+                                        }
+                                    }
+                                }
+                            ].map(({ name, label, placeholder, validation }) => (
                                 <div key={name}>
                                     <label className="block mb-1 font-medium text-gray-700">{label}</label>
                                     <input
-                                        {...register(name, {
-                                            required: `${label} is required`,
-                                            ...(name === "email" && {
-                                                pattern: {
-                                                    value: /\S+@\S+\.\S+/,
-                                                    message: "Invalid email address"
-                                                }
-                                            })
-                                        })}
+                                        {...register(name, validation)}
                                         placeholder={placeholder}
                                         className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-400 outline-none transition"
                                     />
@@ -106,20 +125,16 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
                                     className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-400 outline-none transition bg-white"
                                     defaultValue=""
                                 >
-                                    <option value="" disabled hidden>Select your role</option>
+                                    <option value="" disabled hidden>
+                                        Select your role
+                                    </option>
                                     <optgroup label="Professionals">
                                         <option value="mutual_fund_distributor">Mutual Fund Distributor</option>
                                         <option value="investment_advisor">Registered Investment Advisor</option>
                                         <option value="insurance_agent">Insurance Agent</option>
                                         <option value="financial_planner">Certified Financial Planner</option>
                                     </optgroup>
-                                    <optgroup label="Organizations">
-                                        <option value="family_office">Family Office</option>
-                                        <option value="fintech_startup">Fintech Startup</option>
-                                    </optgroup>
-                                    <optgroup label="Other">
-                                        <option value="other">Other (Specify in message)</option>
-                                    </optgroup>
+
                                 </select>
                                 {errors.role && (
                                     <p className="text-sm text-red-500 mt-1">{errors.role.message}</p>
@@ -138,9 +153,23 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
                                 >
                                     {isLoading ? (
                                         <div className="flex items-center justify-center gap-2">
-                                            <svg className="animate-spin h-5 w-5 text-black" viewBox="0 0 24 24">
-                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                                            <svg
+                                                className="animate-spin h-5 w-5 text-black"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <circle
+                                                    className="opacity-25"
+                                                    cx="12"
+                                                    cy="12"
+                                                    r="10"
+                                                    stroke="currentColor"
+                                                    strokeWidth="4"
+                                                />
+                                                <path
+                                                    className="opacity-75"
+                                                    fill="currentColor"
+                                                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                                                />
                                             </svg>
                                             Submitting...
                                         </div>
