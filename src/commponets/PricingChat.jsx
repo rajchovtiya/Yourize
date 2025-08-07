@@ -55,7 +55,7 @@ const featureList = [
     'Community Access-Yourize Circle'
 ];
 
-const PricingChart = () => {
+const PricingChart = ({ setFromslow }) => {
     const [selectedPlan, setSelectedPlan] = useState('Growth');
 
     return (
@@ -78,7 +78,10 @@ const PricingChart = () => {
                                             <div className="flex flex-col items-center gap-2">
                                                 <span>{plan.name}</span>
                                                 <button
-                                                    onClick={() => setSelectedPlan(plan.name)}
+                                                    onClick={() => {
+                                                        setSelectedPlan(plan.name)
+                                                        setFromslow(true)
+                                                    }}
                                                     className={`text-xs px-12 py-3 rounded-xl border font-medium
                                                         ${isSelected
                                                             ? 'border-[#c7ad4d] bg-[#FAC817] text-black hover:bg-[#e9bb14]'

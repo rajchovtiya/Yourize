@@ -56,7 +56,7 @@ const Footer = () => {
                 <p className="text-gray-400 hover:text-yellow-400 cursor-pointer">
                     📍 WeWork Latitude, 9th floor, RMZ Latitude Commercial, Bellary Road, Hebbal, Near Godrej Apt, Bangalore, Karnataka 560024
                 </p>
-                <p className="text-gray-500">© {new Date().getFullYear()} Your Company. All rights reserved.</p>
+                <p className="text-gray-500">© {new Date().getFullYear()} YouRize. All rights reserved</p>
             </div>
         </footer>
     );
