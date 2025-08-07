@@ -5,10 +5,35 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [show, setShow] = useState(false);
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         console.log("Form submitted:", data);
-        reset()
 
+        const payload = {
+            ...data,
+            access_key: "05256a79-564d-4120-b056-1a1de1a98153"
+        };
+
+        try {
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await res.json();
+
+            if (result.success) {
+                console.log("Success", result);
+                reset(); // reset form
+            } else {
+                console.error("Submission failed", result);
+            }
+        } catch (err) {
+            console.error("Error submitting form", err);
+        }
     };
 
     useEffect(() => {
