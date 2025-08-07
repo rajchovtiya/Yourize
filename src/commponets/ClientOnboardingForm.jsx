@@ -2,16 +2,18 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 
 export default function ClientOnboardingForm({ fromslow, setFromslow }) {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [show, setShow] = useState(false);
 
     const onSubmit = (data) => {
         console.log("Form submitted:", data);
+        reset()
+
     };
 
     useEffect(() => {
         if (fromslow) {
-            setTimeout(() => setShow(true), 100); // smooth animation start
+            setTimeout(() => setShow(true), 100);
         } else {
             setShow(false);
         }
@@ -19,21 +21,17 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
 
     const handleClose = () => {
         setShow(false);
-        setTimeout(() => setFromslow(false), 200); // wait for animation to finish
+        setTimeout(() => setFromslow(false), 200);
     };
 
     return (
         <>
-            {fromslow === true ?
-                < div className={`fixed inset-0 w-full z-[300] min-h-screen flex items-center justify-center bg-black/70 backdrop-blur-sm px-4 overflow-y-auto padding ${show === true ? "block" : "hidden"}`}>
-                    {/* Background Image */}
+            {fromslow && (
+                <div className={`fixed inset-0 w-full z-[300] min-h-screen flex items-center justify-center bg-black/70 backdrop-blur-sm px-4 overflow-y-auto ${show ? "block" : "hidden"}`}>
                     <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: `url('./img/linebox.png')` }}></div>
 
-                    {/* Form Container */}
-                    <div className={`
-                        relative z-10 w-full md:-[50%] max-w-4xl transition-all duration-500 ease-in-out transform
-                        ${show ? "opacity-100 scale-100" : "opacity-0 scale-95"}
-                    `}>
+                    <div className={`relative z-10 w-full max-w-4xl transition-all duration-500 ease-in-out transform ${show ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
+
                         {/* Close Button */}
                         <div className="flex justify-end mb-2">
                             <button
@@ -54,40 +52,41 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
                         {/* Form Box */}
                         <div className="bg-white rounded-[30px] px-6 sm:px-8 py-6 sm:py-8 border border-white/20 backdrop-blur-md shadow-yellow-400 shadow-md">
                             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-6">
-                                {[
-                                    { label: "Name", name: "name", placeholder: "Your Name Here", rules: { required: "Name is required" } },
-                                    { label: "Contact", name: "contact", placeholder: "Your Phone Number Here", rules: { required: "Phone number is required" } },
-                                    {
-                                        label: "Mail",
-                                        name: "email",
-                                        placeholder: "Your E-mail Here",
-                                        rules: {
-                                            required: "Email is required",
-                                            pattern: {
-                                                value: /\S+@\S+\.\S+/,
-                                                message: "Invalid email address",
-                                            },
-                                        },
-                                    },
-                                ].map((field, index) => (
+                                {/* Input Fields */}
+                                {["name", "contact", "email"].map((field, index) => (
                                     <div key={index} className="relative">
                                         <div className="absolute left-4 top-3 bg-black rounded h-[33px] w-[96px] flex items-center justify-center">
-                                            <label className="text-yellow-400 text-sm font-bold">{field.label}</label>
+                                            <label className="text-yellow-400 text-sm font-bold">
+                                                {field === "name" ? "Name" : field === "contact" ? "Contact" : "Mail"}
+                                            </label>
                                         </div>
                                         <input
-                                            {...register(field.name, field.rules)}
-                                            placeholder={field.placeholder}
+                                            {...register(field, {
+                                                required: `${field.charAt(0).toUpperCase() + field.slice(1)} is required`,
+                                                ...(field === "email" && {
+                                                    pattern: {
+                                                        value: /\S+@\S+\.\S+/, message: "Invalid email address"
+                                                    }
+                                                })
+                                            })}
+                                            placeholder={
+                                                field === "name"
+                                                    ? "Your Name Here"
+                                                    : field === "contact"
+                                                        ? "Your Phone Number Here"
+                                                        : "Your E-mail Here"
+                                            }
                                             className="w-full pl-36 py-4 rounded bg-transparent border border-[#554A26] text-black placeholder-black outline-none"
                                         />
-                                        {errors[field.name] && (
+                                        {errors[field] && (
                                             <p className="text-red-500 text-xs mt-1 absolute -bottom-5 left-0">
-                                                {errors[field.name]?.message}
+                                                {errors[field].message}
                                             </p>
                                         )}
                                     </div>
                                 ))}
 
-                                {/* Dropdown */}
+                                {/* Role Dropdown */}
                                 <div className="relative">
                                     <div className="absolute left-4 top-3 bg-black rounded h-[33px] w-[120px] flex items-center justify-center">
                                         <label className="text-yellow-400 text-sm font-bold">I am</label>
@@ -95,7 +94,7 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
 
                                     <select
                                         {...register("role", { required: "Please select an option" })}
-                                        className="w-full pl-36 py-4 rounded bg-white border border-black text-black outline-none appearance-none transition duration-300 ease-in-out focus:ring-2  focus:border-black"
+                                        className="w-full pl-36 py-4 rounded bg-white border border-black text-black outline-none appearance-none transition duration-300 ease-in-out focus:ring-2 focus:border-black"
                                         defaultValue=""
                                     >
                                         <option value="" disabled hidden>Select Your Role</option>
@@ -137,9 +136,8 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
                             </button>
                         </div>
                     </div>
-                </div >
-                : ''
-            }
+                </div>
+            )}
         </>
     );
 }
