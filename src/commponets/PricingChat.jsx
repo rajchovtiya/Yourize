@@ -59,105 +59,101 @@ const PricingChart = ({ setFromslow }) => {
     const [selectedPlan, setSelectedPlan] = useState('Growth');
 
     return (
-        <div className="mt-16 bg-black text-white p-4">
-            <div className="overflow-x-auto">
-                <div className='border border-white/10 py-[2%] px-[4%] rounded-2xl min-w-[800px] sm:min-w-full'>
-                    <table className="min-w-full border-separate border-spacing-0 rounded-lg">
-                        <thead>
-                            <tr>
-                                <th className="p-4 text-left w-64 border-b border-white/10 sticky left-0 z-10 bg-black"></th>
-                                {plans.map((plan, index) => {
-                                    const isSelected = selectedPlan === plan.name;
-                                    return (
-                                        <th
-                                            key={index}
-                                            className={`p-4 text-2xl text-center font-normal border-b border-white/10
-                                            sticky z-10 ${index === 0 ? 'left-[16rem]' : ''} 
-                                            ${isSelected ? 'bg-[#2A2103]' : 'bg-black'}`}
-                                        >
-                                            <div className="flex flex-col items-center gap-2">
-                                                <span>{plan.name}</span>
-                                                <button
-                                                    onClick={() => {
-                                                        setSelectedPlan(plan.name)
-                                                        setFromslow(true)
-                                                    }}
-                                                    className={`text-xs px-12 py-3 rounded-xl border font-medium
-                                                        ${isSelected
-                                                            ? 'border-[#c7ad4d] bg-[#FAC817] text-black hover:bg-[#e9bb14]'
-                                                            : 'border-gray-300 bg-white/10 text-white hover:bg-white/20'
-                                                        }`}
-                                                >
-                                                    Get Started
-                                                </button>
-                                            </div>
-                                        </th>
-                                    );
-                                })}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* Price row */}
-                            <tr>
-                                <td className="p-4 text-left text-sm font-medium border-b border-white/10 sticky left-0 z-10 bg-black">
-                                    Price
+        <div className="mt-16 bg-black text-white w-full px-4 py-8 overflow-x-auto">
+            <div className="min-w-[900px] md:min-w-full">
+                <table className="w-full border-separate border-spacing-0">
+                    <thead>
+                        <tr>
+                            <th className="p-4 text-left sticky top-0 left-0 z-20 bg-black w-64"></th>
+                            {plans.map((plan, index) => {
+                                const isSelected = selectedPlan === plan.name;
+                                return (
+                                    <th
+                                        key={index}
+                                        className={`p-4 sticky top-0 z-10 bg-black text-center font-semibold text-sm min-w-[200px] ${isSelected ? 'bg-[#2A2103]' : 'bg-black'
+                                            }`}
+                                    >
+                                        <div className="flex flex-col gap-2 items-center">
+                                            <span>{plan.name}</span>
+                                            <button
+                                                onClick={() => {
+                                                    setSelectedPlan(plan.name);
+                                                    setFromslow?.(true);
+                                                }}
+                                                className={`text-xs px-6 py-2 rounded-md border font-semibold ${isSelected
+                                                        ? 'border-[#c7ad4d] bg-[#FAC817] text-black hover:bg-[#e9bb14]'
+                                                        : 'border-gray-400 bg-white/10 text-white hover:bg-white/20'
+                                                    }`}
+                                            >
+                                                Get Started
+                                            </button>
+                                        </div>
+                                    </th>
+                                );
+                            })}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* Price row */}
+                        <tr>
+                            <td className="p-4 text-left sticky left-0 bg-black border-b border-white/10">
+                                Price
+                            </td>
+                            {plans.map((plan, i) => {
+                                const isSelected = selectedPlan === plan.name;
+                                return (
+                                    <td
+                                        key={i}
+                                        className={`p-4 text-center border-b border-white/10 ${isSelected ? 'bg-[#2A2103]' : 'bg-black opacity-80'
+                                            }`}
+                                    >
+                                        {plan.price}
+                                    </td>
+                                );
+                            })}
+                        </tr>
+
+                        {/* Features row by row */}
+                        {featureList.map((feature, index) => (
+                            <tr key={index}>
+                                <td className="p-4 text-left text-sm bg-black border-b border-white/10 sticky left-0 z-10">
+                                    {feature}
                                 </td>
                                 {plans.map((plan, i) => {
+                                    const value = plan.features[index];
                                     const isSelected = selectedPlan === plan.name;
+
+                                    let content;
+                                    if (value === true) {
+                                        content = <MdCheck className="text-white text-xl mx-auto" />;
+                                    } else if (value === false) {
+                                        content = <IoMdClose className="text-white text-xl mx-auto" />;
+                                    } else if (typeof value === 'string' && value.startsWith('true(')) {
+                                        const text = value.match(/true\((.*?)\)/)?.[1] || '';
+                                        content = (
+                                            <div className="flex items-center justify-center gap-1 text-sm">
+                                                <MdCheck className="text-white text-xl" />
+                                                <span>{text}</span>
+                                            </div>
+                                        );
+                                    } else {
+                                        content = <span className="text-sm">{value}</span>;
+                                    }
+
                                     return (
                                         <td
                                             key={i}
-                                            className={`p-2 md:p-4 text-center font-normal border-b border-white/10
-                                            ${isSelected ? 'bg-[#2A2103]' : 'bg-black text-white opacity-80'}`}
+                                            className={`p-4 text-center border-b border-white/10 ${isSelected ? 'bg-[#2A2103]' : 'bg-black'
+                                                }`}
                                         >
-                                            {plan.price}
+                                            {content}
                                         </td>
                                     );
                                 })}
                             </tr>
-
-                            {/* Feature rows */}
-                            {featureList.map((feature, index) => (
-                                <tr key={index}>
-                                    <td className="p-3 md:p-4 text-left text-sm bg-black border-b border-white/10 sticky left-0 z-10">
-                                        {feature}
-                                    </td>
-                                    {plans.map((plan, i) => {
-                                        const value = plan.features[index];
-                                        const isSelected = selectedPlan === plan.name;
-
-                                        let content;
-                                        if (value === true) {
-                                            content = <MdCheck className="text-white text-xl mx-auto" />;
-                                        } else if (value === false) {
-                                            content = <IoMdClose className="text-white text-xl mx-auto" />;
-                                        } else if (typeof value === 'string' && value.startsWith('true(')) {
-                                            const text = value.match(/true\((.*?)\)/)?.[1] || '';
-                                            content = (
-                                                <div className="flex items-center justify-center gap-1">
-                                                    <MdCheck className="text-white text-xl" />
-                                                    <span className="text-sm">{text}</span>
-                                                </div>
-                                            );
-                                        } else {
-                                            content = <span className="text-sm">{value}</span>;
-                                        }
-
-                                        return (
-                                            <td
-                                                key={i}
-                                                className={`p-2 md:p-4 text-center border-b border-white/10 text-wrap 
-                                                ${isSelected ? 'bg-[#2A2103]' : 'bg-black text-white'}`}
-                                            >
-                                                {content}
-                                            </td>
-                                        );
-                                    })}
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     );
