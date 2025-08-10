@@ -6,7 +6,7 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
     const [show, setShow] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
-
+    
     const onSubmit = async (data) => {
         setIsLoading(true);
 
@@ -76,13 +76,11 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
                                 {
                                     name: "name",
                                     label: "Full Name",
-                                    placeholder: "John Doe",
                                     validation: { required: "Full Name is required" }
                                 },
                                 {
                                     name: "contact Number",
                                     label: "Contact Number",
-                                    placeholder: "9876543210",
                                     validation: {
                                         required: "Contact Number is required",
                                         pattern: {
@@ -94,7 +92,6 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
                                 {
                                     name: "email",
                                     label: "Email",
-                                    placeholder: "john@example.com",
                                     validation: {
                                         required: "Email is required",
                                         pattern: {
