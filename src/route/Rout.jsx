@@ -7,7 +7,7 @@ import Pricing from "../pages/pricing/Pricing";
 import OurWorks from "../pages/ourworks/OurWorks";
 import ClientOnboardingForm from "../components/ClientOnboardingForm";
 import { useState } from "react";
-import AdminLayout from "../pages/AdminLayout/AdminLayout";
+import AdminLayout from "../pages/adminLayout/AdminLayoutall";
 import MasterAdmin from "../pages/masterAdmin/MasterAdmin";
 import BusinessAdmin from "../pages/businessAdmin/BusinessAdmin";
 
