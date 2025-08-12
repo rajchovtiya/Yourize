@@ -10,7 +10,9 @@ const Footer = () => {
 
                 {/* Logo + About */}
                 <div>
-                    <img src="/img/Logo (2).png" alt="Logo" className="w-36 mb-4 mx-auto md:mx-0" />
+                    <NavLink to={'/'}>
+                        <img src="/img/Logo (2).png" alt="Logo" className="w-36 mb-4 mx-auto md:mx-0" />
+                    </NavLink>
                     <p className="text-sm leading-relaxed">
                         Empowering businesses with modern digital solutions. We strive to deliver value and creativity.
                     </p>
