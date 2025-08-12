@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
 import { FaInstagram, FaFacebookF } from "react-icons/fa";
+import useDragScroll from "../../customHooks/useDragScroll";
 
 // GALLERY DATA
 const galleryItems1 = [
@@ -22,27 +22,14 @@ const galleryItems2 = [
 
 // REUSABLE SCROLLABLE GALLERY ROW
 const ScrollableGalleryRow = ({ items }) => {
-    const scrollRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
-
-    const handleMouseDown = (e) => {
-        setIsDragging(true);
-        setStartX(e.pageX - scrollRef.current.offsetLeft);
-        setScrollLeft(scrollRef.current.scrollLeft);
-    };
-
-    const handleMouseLeave = () => setIsDragging(false);
-    const handleMouseUp = () => setIsDragging(false);
-
-    const handleMouseMove = (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - scrollRef.current.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        scrollRef.current.scrollLeft = scrollLeft - walk;
-    };
+    const {
+        scrollRef,
+        isDragging,
+        handleMouseDown,
+        handleMouseLeave,
+        handleMouseUp,
+        handleMouseMove,
+    } = useDragScroll();
 
     return (
         <div
