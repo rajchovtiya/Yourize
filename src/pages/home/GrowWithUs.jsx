@@ -76,7 +76,7 @@ function GrowWithUs() {
                     <div
                         key={item.id}
                         ref={(el) => (cardsRef.current[index] = el)}
-                        className="w-full md:w-[390px] h-[620px] pb-4 rounded-[20px] bg-[#000000] relative p-6 px-6 text-white 
+                        className="w-full md:w-[390px] h-[660px] pb-6 rounded-[20px] bg-[#000000] relative p-6 px-6 text-white 
                         shadow-lg overflow-hidden border border-[#FAC817] boxswdobox_shadow4 "
                     >
                         {/* Glow background */}
