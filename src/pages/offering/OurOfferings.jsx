@@ -4,63 +4,66 @@ const OurOfferingsData = [
     {
         id: 1,
         image: "./img/box1.png",
-        title: "Branding ",
-        title2: "& Content Creation",
+        title: "Brand ",
+        title2: "& Marketing Resources",
         description: [
-            "Personalized marketing collaterals (posts, creatives, brand kits)",
-            "Website creation & visual branding (logo, color palette, business cards)",
-            "Video editing & voiceover services",
-            "Festive & monthly campaign kits",
-            "Auto-generated sales proposals",
+            "High-quality images & videos ready for your social media posts",
+            "Regional language marketing content to connect with local investors",
+            "Customised sales proposals & presentations for client meetings",
+            "Personal branding videos to showcase your expertise",
+            "Professionally designed introductory decks to win client confidence",
         ],
     },
     {
         id: 2,
         image: "./img/box2.png",
         title: "Social Media ",
-        title2: "& Outreach",
+        title2: " Management",
         description: [
-            "Done-for-you social media management",
-            "Predefined email & WhatsApp templates",
-            "Email & WhatsApp marketing setup",
-            "Blogs & articles for client education",
-            "Weekly market insights",
+            "End-to-end social media handling – we create, post & engage for you",
+            "Targeted ad campaigns to generate quality investor leads",
+            "Investor awareness posts (SIP benefits, MF myths, retirement planning etc.)",
+            "Festive & occasion-based content to connect with clients personally",
+            "Monthly performance reports so you know what’s working",
         ],
     },
     {
         id: 3,
         image: "./img/box3.png",
-        title: "Smart Tech ",
-        title2: "& Automation",
+        title: "Website ",
+        title2: "Development",
         description: [
-            "Client onboarding workflows",
-            "Automated portfolio reviews",
-            "Paperless forms & e-signatures",
-            "Lead management system",
-            "CRM integration & reminders",
+            "Modern UI/UX design that makes you look professional and trustworthy",
+            "Domain, hosting & SSL included for complete peace of mind",
+            "Dynamic & mobile-friendly website built for Indian investors",
+            "Showcase your services & expertise with a personal distributor website",
+            "Regular maintenance & updates so your website stays fresh",
         ],
     },
     {
         id: 4,
         image: "./img/box4.png",
-        title: "Learning",
-        title2: "& Community",
+        title: "Logo",
+        title2: "Design",
         description: [
-            "Learning modules for MFDs & RIAs",
-            "Exclusive webinars & masterclasses",
-            "Offline events & regional workshops",
-            "Yourize Community access",
+            "A professional logo that reflects your brand identity",
+            "Multiple design concepts to choose from",
+            "Clean, modern and finance-industry aligned designs",
+            "Logo delivered in all formats (social, print, website use)",
+            "Builds trust & recall value for your brand"
         ],
     },
     {
         id: 5,
         image: "./img/box5.png",
-        title: "Client Engagement ",
-        title2: "& Advisory Support",
+        title: "Events ",
+        title2: "Workshops",
         description: [
-            "MF research tools (curated fund comparisons, analysis)",
-            "Goal-based financial calculators",
-            "Ready-to-share client education content",
+            "Exclusive access to industry seminars & conferences",
+            "Discounts & complimentary passes for paid events",
+            "Investor education workshops under your own brand name",
+            "Networking opportunities with top MFDs & experts",
+            "Learn latest marketing & business growth strategies"
         ],
     },
 ];
@@ -91,7 +94,7 @@ function OurOfferings() {
                 {OurOfferingsData.map((item) => (
                     <div
                         key={item.id}
-                        className="w-full sm:w-[300px] md:w-[340px] border border-[#FAC817] rounded-[38px] overflow-hidden relative bg-black shadow-lg px-4 py-6 h-[540px] boxswdobox_shadow4"
+                        className="w-full sm:w-[300px] md:w-[340px] border border-[#FAC817] rounded-[38px] overflow-hidden relative bg-black shadow-lg px-5 py-6  boxswdobox_shadow4 h-[620px]"
                     >
                         <div className="absolute w-full max-h-[190px] ">
                             <img
@@ -109,12 +112,12 @@ function OurOfferings() {
                         <h2 className="text-center text-xl sm:text-2xl font-medium text_color mt-6">
                             {item.title}
                         </h2>
-                        <h2 className="text-center text-xl sm:text-2xl font-medium text-[#9F7F10] ">
+                        <h2 className="text-center text-xl sm:text-2xl font-medium text-[#9F7F10] mb-6 ">
                             {item.title2}
                         </h2>
                         <div className="mt-4 space-y-3">
                             {item.description.map((point, idx) => (
-                                <p key={idx} className="text_color2 text-sm sm:text-base text-center z-50">
+                                <p key={idx} className="text_color2 text-sm sm:text-base text-center z-50 opacity-100 font-light">
                                     {point}
                                 </p>
                             ))}

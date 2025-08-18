@@ -9,41 +9,46 @@ const GrowWithUsData = [
     {
         id: 1,
         icon: "./img/Icon1.png",
-        title: "Marketing ",
-        title2: "& Branding",
+        title: "Branding ",
+        title2: "& Marketing Resources",
         description: [
-            "Get your own website and branding kit",
-            "Get your own brand marketing creatives with your name & logo",
-            "Access ready-to-use WhatsApp, SMS & email campaigns/ Templates",
-            "Get Social media management services to increase your reach"
+            "Ready-to-use whitelabel images & videos for your social media",
+            "Regional language content to reach customers in their own language",
+            "Easy-to-create sales proposals & presentations",
+            "Professional introductory decks for client meetings",
+            "Personal branding videos to showcase your expertise",
+            "Website design & logo creation for a complete digital identity"
         ],
-        note: "Get Whatsapp & mail setup in admin panel",
     },
     {
         id: 2,
         icon: "./img/Icon2.png",
-        title: "Lead Management",
-        title2: "& Exclusive Tools",
+        title: "Social Media",
+        title2: "Management",
         description: [
-            "Add, manage & track all your leads in one place",
-            "Get alerts and reminders to follow up on time",
-            "Use AI Powered tools to calculate goal, returns, and for sales proposal creation.",
-            "Maintain client meeting notes and call records"
+            "End-to-end social media handling from posting to engagement",
+            "Replying to client messages & comments quickly",
+            "Running targeted ads to generate quality leads",
+            "Posting blogs & articles to educate and attract investors",
+            "Investor awareness campaigns (SIP benefits, mutual fund myths, financial planning tips , Insurance)",
+            "Compliance-friendly content that matches SEBI guidelines",
+            "Festive & occasion-based campaigns to connect with clients personally"
         ],
-        note: "Get access to priority leads and referrals from the platform",
     },
     {
         id: 3,
         icon: "./img/Icon3.png",
-        title: "Learn",
-        title2: "& Grow",
+        title: "Exclusive Events",
+        title2: "& Workshops",
         description: [
-            "Access easy learning videos and guides (in Hindi & English)",
-            "Attend live webinars with experts every month",
-            "Learn about new products and how to sell them",
-            "Get tips to handle client objections & increase AUM"
+            "Access to industry seminars and offline events",
+            "Discounts & complimentary passes for paid events and workshops",
+            "Learn about the latest market trends, branding & marketing strategies",
+            "Investor education workshops you can host under your own brand",
+            "Networking opportunities with other MFDs and industry experts",
+            "Training sessions on market trends and other strategies",
+            "Exclusive access to Yourize community."
         ],
-        note: "Join a community of top-performing advisors across India",
     }
 ];
 
@@ -59,10 +64,10 @@ function GrowWithUs() {
                 <h1 className='text-5xl text_color2 text-center section-heading'>Everything you need to Grow</h1>
                 <h1 className='linear_gradient text-5xl mt-[20px] text-center section-heading'>All in One Platform</h1>
                 <p className='text_color mt-8 font-light text-[20px] text-center section-heading'>
-                    From branding to lead generation, automation to learning we have built Yourize to
+                    We help Mutual Fund Distributors grow their business, build a strong brand
                 </p>
                 <p className='text-center text_color font-light text-[20px] section-heading'>
-                    support every part of your journey as a financial professional
+                    and connect better with investors.
                 </p>
             </div>
 
@@ -71,8 +76,8 @@ function GrowWithUs() {
                     <div
                         key={item.id}
                         ref={(el) => (cardsRef.current[index] = el)}
-                        className="w-full md:w-[360px] h-[530px] pb-4 rounded-[20px] bg-[#000000] relative p-6 px-8 text-white 
-                        shadow-lg overflow-hidden border border-[#FAC817] boxswdobox_shadow4"
+                        className="w-full md:w-[360px] h-[650px] pb-4 rounded-[20px] bg-[#000000] relative p-6 px-6 text-white 
+                        shadow-lg overflow-hidden border border-[#FAC817] boxswdobox_shadow4 "
                     >
                         {/* Glow background */}
                         <div className="absolute top-[-50px] left-[-50px] w-[400px] h-[400px] bg-[#FAC817] 
@@ -96,7 +101,7 @@ function GrowWithUs() {
                         ))}
 
                         {/* Icon */}
-                        <div className="mx-auto mb-5 flex items-center justify-center text-yellow-400 text-xl z-10 relative">
+                        <div className="mx-auto mb-6 flex items-center justify-center text-yellow-400 text-xl z-10 relative">
                             <img src={item.icon} alt="" className='max-w-[70px]' />
                         </div>
 

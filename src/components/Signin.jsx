@@ -1,5 +1,7 @@
-import React from "react";
 import { useForm } from "react-hook-form";
+import { NavLink } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Signin() {
     const {
@@ -17,26 +19,28 @@ export default function Signin() {
             (data.username === demoUser || data.username === demoEmail) &&
             data.password === demoPass
         ) {
-            alert("✅ Sign-In Successful! Redirecting to User Dashboard...");
-            window.location.href = "/dashboard";
+            toast.success("✅ Sign-In Successful! Redirecting to Dashboard...", {
+                position: "top-center",
+                autoClose: 2000,
+            });
+            setTimeout(() => {
+                window.location.href = "/dashboard";
+            }, 2000);
         } else {
-            alert("❌ Invalid Username/Email or Password");
+            toast.error("❌ Invalid Username/Email or Password", {
+                position: "top-center",
+            });
         }
     };
 
-    const handleForgotPassword = () => {
-        alert("🔐 Redirecting to password reset page...");
-        window.location.href = "/forgot-password";
-    };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100">
             <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
-
                 {/* Title */}
                 <div className="flex flex-col items-center mb-6">
                     <img
-                        src="./img/userlogo.png"
+                        src="./img/adminlogo.png"
                         alt="User Logo"
                         className="w-20 h-20 object-contain mb-2"
                     />
@@ -82,15 +86,17 @@ export default function Signin() {
                     </div>
 
                     {/* Forgot Password */}
-                    <div className="mb-6 text-right">
-                        <button
-                            type="button"
-                            onClick={handleForgotPassword}
-                            className="text-sm text-purple-600 hover:underline"
-                        >
-                            Forgot Password?
-                        </button>
-                    </div>
+                    <NavLink to={"forgotPassword"}>
+
+                        <div className="mb-6 text-right">
+                            <button type="button"
+                                className="text-sm text-purple-600 hover:underline"
+                            >
+                                Forgot Password?
+                            </button>
+
+                        </div>
+                    </NavLink>
 
                     {/* Submit */}
                     <button
@@ -100,17 +106,10 @@ export default function Signin() {
                         Sign In
                     </button>
                 </form>
+            </div >
 
-                {/* Sign Up Link */}
-                {/* <div className="mt-4 text-center">
-                    <a
-                        href="/signup"
-                        className="text-sm text-purple-600 hover:underline hover:text-purple-800 transition"
-                    >
-                        New here? Create an account
-                    </a>
-                </div> */}
-            </div>
-        </div>
+            {/* Toast Container */}
+            < ToastContainer />
+        </div >
     );
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { ArrowPathIcon } from "@heroicons/react/24/outline"; // refresh icon
 import "react-toastify/dist/ReactToastify.css";
+import { NavLink } from "react-router-dom";
 
 export default function ForgotPassword() {
     const [formData, setFormData] = useState({
@@ -191,9 +192,9 @@ export default function ForgotPassword() {
 
                 {/* Back to login */}
                 <div className="text-center mt-4">
-                    <a href="/login" className="text-sm text-gray-500 hover:underline">
+                    <NavLink to={'/AdminLayout'} className="text-sm text-gray-500 hover:underline">
                         Back to login
-                    </a>
+                    </NavLink>
                 </div>
             </div>
 

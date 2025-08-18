@@ -7,9 +7,11 @@ import Pricing from "../pages/pricing/Pricing";
 import OurWorks from "../pages/ourworks/OurWorks";
 import ClientOnboardingForm from "../components/ClientOnboardingForm";
 import { useState } from "react";
-import AdminLayout from "../pages/adminLayout/AdminLayoutall";
-import MasterAdmin from "../pages/masterAdmin/MasterAdmin";
-import BusinessAdmin from "../pages/businessAdmin/BusinessAdmin";
+// import MasterAdmin from "../pages/masterAdmin/MasterAdmin";
+// import BusinessAdmin from "../pages/businessAdmin/BusinessAdmin";
+// import ForgotPassword from "../components/ForgotPassword";
+// import AdminLayout from "../pages/adminLayout/AdminLayoutall";
+// import AdminLayoutall from "../pages/adminLayout/AdminLayoutall";
 
 function Rout() {
     const [navabr, setNavabr] = useState('Navshadow');
@@ -21,50 +23,28 @@ function Rout() {
             <ClientOnboardingForm fromslow={fromslow} setFromslow={setFromslow} />
 
             <Routes>
+                {/* Public Pages */}
                 <Route path="/" element={<Outlet />}>
-
-                    <Route
-                        path="/"
-                        element={
-                            <Home
-                                setNavabr={setNavabr}
-                                setFromslow={setFromslow}
-                            />
-                        }
-                    />
-                    <Route
-                        path="/offering"
-                        element={
-                            <Offering
-                                setNavabr={setNavabr}
-                                setFromslow={setFromslow}
-                            />
-                        }
-                    />
-                    <Route
-                        path="/pricing"
-                        element={
-                            <Pricing
-                                setNavabr={setNavabr}
-                                setFromslow={setFromslow}
-                            />
-                        }
-                    />
-                    <Route
-                        path="/ourworks"
-                        element={
-                            <OurWorks
-                                setNavabr={setNavabr}
-                                setFromslow={setFromslow}
-                            />
-                        }
-                    />
+                    <Route index element={
+                        <Home setNavabr={setNavabr} setFromslow={setFromslow} />
+                    } />
+                    <Route path="offering" element={
+                        <Offering setNavabr={setNavabr} setFromslow={setFromslow} />
+                    } />
+                    <Route path="pricing" element={
+                        <Pricing setNavabr={setNavabr} setFromslow={setFromslow} />
+                    } />
+                    <Route path="ourworks" element={
+                        <OurWorks setNavabr={setNavabr} setFromslow={setFromslow} />
+                    } />
                 </Route>
-                <Route path="/adminPanel" element={<AdminLayout />}>
+
+                {/* Admin Pages */}
+                {/* <Route path="/adminLayout" element={<AdminLayoutall />}>
                     <Route index element={<MasterAdmin />} />
                     <Route path="businessAdmin" element={<BusinessAdmin />} />
-                </Route>
-
+                    <Route path="forgotPassword" element={<ForgotPassword />} />
+                </Route> */}
             </Routes>
 
             <Footer setFromslow={setFromslow} />

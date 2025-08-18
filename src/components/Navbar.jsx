@@ -22,7 +22,7 @@ function Navbar({ navabr, setFromslow }) {
         <div className="hidden md:flex items-center justify-evenly w-full md:ml-[22%] xl:ml-[24%] ml-40 ">
           <ul className="flex items-center gap-10 rounded-3xl py-2 px-10 border border-[#FAC817] shadow">
             <NavLink to={'/offering'} className="text_color font-light cursor-pointer hover:text-gray-500 duration-500">Offerings</NavLink>
-            <NavLink to={'/Pricing'} className="text_color font-light cursor-pointer hover:text-gray-500 duration-500">Prices</NavLink>
+            <NavLink to={'/Pricing'} className="text_color font-light cursor-pointer hover:text-gray-500 duration-500">Pricing</NavLink>
             <NavLink to={'/OurWorks'} className="text_color font-light cursor-pointer hover:text-gray-500 duration-500">Our Works</NavLink>
           </ul>
           <div onClick={() => { setFromslow(true) }} className="py-2 cursor-pointer px-6 rounded-2xl border border-[#FAC817] shadow text_color font-light ml-4 hover:bg-[#FAC817] hover:text-black transition-colors duration-300">

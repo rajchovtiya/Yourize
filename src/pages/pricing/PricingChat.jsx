@@ -5,61 +5,50 @@ import { MdCheck } from "react-icons/md";
 const plans = [
     {
         name: 'Kickstart',
-        price: 'INR 6500/- per year',
-        features: ['8', '4', 'English + Hindi', true, false, false, true, true, false, true, false, false, false, false, true, false, true, true, false, true, true, true, true, false, false, false, true, true],
-    },
-    {
-        name: 'Growth',
-        price: 'INR 12500/- per year',
-        features: ['8', '4', 'Multi Language', true, true, true, true, true, true, true, '2', true, true, true, true, false, true, true, false, true, true, true, true, false, false, false, true, true],
+        price: 'INR 2400/- per year',
+        features: ['8 / month (Hindi & English)', '4 (English only)', false, false, "20 / month", false, false, false, false, 'true( Full access)', false, false, true, true, true, true],
     },
     {
         name: 'Elite',
-        price: 'INR 22500/- per year',
-        features: ['12', '6', 'Multi Language', true, true, true, true, true, true, true, '3', true, true, true, true, true, true, true, 'true(Shared Access)', true, true, true, true, false, false, false, true, true],
+        price: 'INR 5000/- per year',
+        features: ["12 / month (Multi-language)", "6 (English + AI content)", true, true, "50 / month", true, false, false, true, 'true( Full access)', "true(Discount on passes)", "true(Limited access)", true, true, true, true],
     },
     {
         name: 'Legacy',
-        price: 'INR 50000/- per year',
-        features: ['15', '8', 'Multi Language', true, true, true, true, true, true, true, '4+', true, true, true, true, true, true, true, 'true(Dedicated)', true, true, true, true, true, true, true, true, true],
+        price: 'INR 10000/- per year',
+        features: ['20 / month (Multi-language)', '10 (Multi-language + AI content)', true, true, '100 / month', true, 'true( 1 per quarter)', 'true(Included)', true, "true(Full access)", 'true(2 Complimentary passes + Discounts)', 'true(Priority access)', true, true, true, true],
     },
+    // {
+    //     name: 'Legacy',
+    //     price: 'INR 50000/- per year',
+    //     features: ['15', '8', 'Multi Language', true, true, true, true, true, true, true, '4+', true, true, true, true, true, true, true, 'true(Dedicated)', true, true, true, true, true, true, true, true, true],
+    // },
 ];
 
 const featureList = [
-    'Marketing Collaterals (Images/Month)',
-    'Marketing Videos (Per Month)',
-    'Languages Supported (Marketing)',
+    'Social Media Images',
+    'Videos',
     'AI-Generated Content',
+    'Multi-Language Content',
+    'Proposal Creator',
+    'Introductory Deck / Presentation',
+    'Personal Branding Video',
     'Video Voiceover',
-    'Social Media Management',
-    'Financial Calculators',
-    'Sales Proposal Tool',
-    'Lead Management System (CRM)',
-    'Task & Event Management System',
-    'Blogs & Articles (Per Month)',
-    'Email & WhatsApp Marketing Setup',
-    'Custom Campaign Builder',
-    'Exclusive Webinars & Masterclasses',
-    'Client Webinars by Industry Experts',
-    'Offline Event & Workshop Access',
-    'Email Templates for MF Research',
-    'Dedicated Marketing Expert',
-    'Admin Panel Access',
-    'Learning Modules for MF Advisors',
-    'MF Research Tools',
-    'Sales Pitch Decks & Scripts',
-    'Custom Website Creation',
-    'Logo & Visual Identity Design',
-    '2 Personal Branding Videos',
-    'Weekly Market Insights',
-    'Community Access-Yourize Circle'
+    'Weekly Insights (White-label)',
+    'Webinars & Seminars (Free)',
+    'Paid Events',
+    'Offline Events & Workshop Access',
+    'Online Workshops',
+    'Learning Content',
+    'Yourize Community Access',
+    'Admin Panel Access'
 ];
 
 const PricingChart = ({ setFromslow }) => {
-    const [selectedPlan, setSelectedPlan] = useState('Growth');
+    const [selectedPlan, setSelectedPlan] = useState('Elite');
 
     return (
-        <div className="mt-16 bg-black text-white w-full px-4 py-8 overflow-x-auto">
+        <div className="mt-16 bg-black text-white w-full px-5 py-5 overflow-x-auto">
             <div className="min-w-[900px] md:min-w-full">
                 <table className="w-full border-separate border-spacing-0">
                     <thead>
@@ -81,8 +70,8 @@ const PricingChart = ({ setFromslow }) => {
                                                     setFromslow?.(true);
                                                 }}
                                                 className={`text-xs px-6 py-2 rounded-md border font-semibold ${isSelected
-                                                        ? 'border-[#c7ad4d] bg-[#FAC817] text-black hover:bg-[#e9bb14]'
-                                                        : 'border-gray-400 bg-white/10 text-white hover:bg-white/20'
+                                                    ? 'border-[#c7ad4d] bg-[#FAC817] text-black hover:bg-[#e9bb14]'
+                                                    : 'border-gray-400 bg-white/10 text-white hover:bg-white/20'
                                                     }`}
                                             >
                                                 Get Started
@@ -143,7 +132,7 @@ const PricingChart = ({ setFromslow }) => {
                                     return (
                                         <td
                                             key={i}
-                                            className={`p-4 text-center border-b border-white/10 ${isSelected ? 'bg-[#2A2103]' : 'bg-black'
+                                            className={`p-2 text-center border-b border-white/10 ${isSelected ? 'bg-[#2A2103]' : 'bg-black'
                                                 }`}
                                         >
                                             {content}

@@ -17,7 +17,7 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
         <>
             {/* FORM MODAL */}
             {fromslow && (
-                <div className={`fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4 ${show ? "block" : "hidden"}`}>
+                <div className={`fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4 ${show ? "block" : "hidden"}`} onClick={handleClose} >
                     <div className={`relative w-full max-w-2xl xl:w-[35%] bg-white rounded-2xl p-8 shadow-2xl transition-transform transform ${show ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}>
                         {/* Close */}
                         <button onClick={handleClose} className="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl font-bold">
