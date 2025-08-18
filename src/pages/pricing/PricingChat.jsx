@@ -48,7 +48,7 @@ const PricingChart = ({ setFromslow }) => {
     const [selectedPlan, setSelectedPlan] = useState('Elite');
 
     return (
-        <div className="mt-16 bg-black text-white w-full px-5 py-5 overflow-x-auto">
+        <div className="mt-16 bg-black text-white w-full p-0 md:px-5 py-5 overflow-x-auto">
             <div className="min-w-[900px] md:min-w-full">
                 <table className="w-full border-separate border-spacing-0">
                     <thead>
@@ -59,7 +59,7 @@ const PricingChart = ({ setFromslow }) => {
                                 return (
                                     <th
                                         key={index}
-                                        className={`p-4 sticky top-0 z-10 bg-black text-center font-semibold text-sm min-w-[200px] ${isSelected ? 'bg-[#2A2103]' : 'bg-black'
+                                        className={`p-4 sticky top-0 z-20 bg-black text-center font-semibold text-sm min-w-[200px] ${isSelected ? 'bg-[#2A2103]' : 'bg-black'
                                             }`}
                                     >
                                         <div className="flex flex-col gap-2 items-center">
@@ -85,7 +85,7 @@ const PricingChart = ({ setFromslow }) => {
                     <tbody>
                         {/* Price row */}
                         <tr>
-                            <td className="p-4 text-left sticky left-0 bg-black border-b border-white/10">
+                            <td className="p-4 text-left sticky left-0 bg-black border-b border-white/10 z-20">
                                 Price
                             </td>
                             {plans.map((plan, i) => {
