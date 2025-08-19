@@ -17,10 +17,19 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
         <>
             {/* FORM MODAL */}
             {fromslow && (
-                <div className={`fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4 ${show ? "block" : "hidden"}`}  >
-                    <div className={`relative w-full max-w-2xl xl:w-[35%] bg-white rounded-2xl p-8 shadow-2xl transition-transform transform ${show ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}>
+                <div
+                    className={`fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4 ${show ? "block" : "hidden"}`}
+                    onClick={handleClose} // Close when clicking backdrop
+                >
+                    <div
+                        className={`relative w-full max-w-2xl xl:w-[35%] z-[500] bg-white rounded-2xl p-8 shadow-2xl transition-transform transform ${show ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}
+                        onClick={(e) => e.stopPropagation()} // ⛔ Prevent close when clicking inside
+                    >
                         {/* Close */}
-                        <button onClick={handleClose} className="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl font-bold">
+                        <button
+                            onClick={handleClose}
+                            className="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl font-bold"
+                        >
                             &times;
                         </button>
 
@@ -39,7 +48,7 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
                                     validation: { required: "Full Name is required" }
                                 },
                                 {
-                                    name: "contact Number",
+                                    name: "contactNumber",
                                     label: "Contact Number",
                                     validation: {
                                         required: "Contact Number is required",
@@ -91,7 +100,6 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
                                         <option value="insurance_agent">Insurance Agent</option>
                                         <option value="financial_planner">Certified Financial Planner</option>
                                     </optgroup>
-
                                 </select>
                                 {errors.role && (
                                     <p className="text-sm text-red-500 mt-1">{errors.role.message}</p>
@@ -143,9 +151,14 @@ export default function ClientOnboardingForm({ fromslow, setFromslow }) {
             {/* ✅ Success Dialog */}
             {showSuccess && (
                 <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
-                    <div className="bg-white max-w-md w-full p-8 rounded-2xl shadow-xl text-center animate-fadeIn">
+                    <div
+                        className="bg-white max-w-md w-full p-8 rounded-2xl shadow-xl text-center animate-fadeIn"
+                        onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside success popup
+                    >
                         <h2 className="text-2xl font-bold text-green-600 mb-4">🎉 Thank You!</h2>
-                        <p className="text-gray-800 mb-6">Your enquiry has been submitted. Our team will connect with you soon.</p>
+                        <p className="text-gray-800 mb-6">
+                            Your enquiry has been submitted. Our team will connect with you soon.
+                        </p>
                         <button
                             onClick={() => setShowSuccess(false)}
                             className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition"
