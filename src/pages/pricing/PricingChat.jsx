@@ -6,17 +6,17 @@ const plans = [
     {
         name: 'Kickstart',
         price: 'INR 2400/- per year',
-        features: ['8 / month (Hindi & English)', '4 (English only)', false, false, "20 / month", false, false, false, false, 'true( Full access)', false, false, true, true, true, true],
+        features: ['8 / month (Hindi & English)', '4 (English only)', false, false, "20 / month", false, false, false, false, 'true( Full access)', false, false, true, true, true, true, false,"₹2,400 / year"],
     },
     {
         name: 'Elite',
         price: 'INR 5000/- per year',
-        features: ["12 / month (Multi-language)", "6 (English + AI content)", true, true, "50 / month", true, false, false, true, 'true( Full access)', "true(Discount on passes)", "true(Limited access)", true, true, true, true],
+        features: ["12 / month (Multi-language)", "6 (English + AI content)", true, true, "50 / month", true, false, false, true, 'true( Full access)', "true(Discount on passes)", "true(Limited access)", true, true, true, true, false,"₹5,000 / year"],
     },
     {
         name: 'Legacy',
         price: 'INR 10000/- per year',
-        features: ['20 / month (Multi-language)', '10 (Multi-language + AI content)', true, true, '100 / month', true, 'true( 1 per quarter)', 'true(Included)', true, "true(Full access)", 'true(2 Complimentary passes + Discounts)', 'true(Priority access)', true, true, true, true],
+        features: ['20 / month (Multi-language)', '10 (Multi-language + AI content)', true, true, '100 / month', true, 'true( 1 per quarter)', 'true(Included)', true, "true(Full access)", 'true(2 Complimentary passes + Discounts)', 'true(Priority access)', true, true, true, true, true,"₹10,000 / year"],
     },
     // {
     //     name: 'Legacy',
@@ -41,7 +41,9 @@ const featureList = [
     'Online Workshops',
     'Learning Content',
     'Yourize Community Access',
-    'Admin Panel Access'
+    'Admin Panel Access',
+    'Social Media Management (Blogs & Articles)',
+    'Pricing'
 ];
 
 const PricingChart = ({ setFromslow }) => {
